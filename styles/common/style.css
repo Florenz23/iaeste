@@ -1,0 +1,598 @@
+* {
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+body {
+    background-repeat: repeat-x;
+    background-position: top left;
+    margin: 0px 0px 20px 0px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: Corbel, Verdana, Arial, Helvetica, sans-serif;
+    font-variant: small-caps;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: normal;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+h4 {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+h5,
+h6 {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+    border: 1px solid #B0B0B0;
+}
+
+input[type="submit"],
+button {
+    border: 1px solid #B0B0B0;
+    background-color: #E0E0E0;
+}
+
+nput[type="submit"].constructive,
+button.constructive {
+    font-size: 1.2em;
+    padding: 0.4em;
+}
+
+img {
+    border: none;
+}
+
+#headbox {
+    position: relative;
+    margin: 0px auto 0px auto;
+    padding: 0px;
+    width: 860px;
+    height: 168px;
+    text-align: left;
+    z-index: 10;
+}
+
+#mainmenu {
+    display: block;
+    position: absolute;
+    top: 137px;
+    left: 20px;
+    height: 31px;
+    text-align: left;
+    font-size: 9px;
+    color: #FFFFFF;
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+#mainmenu * {
+    margin: 0px;
+    padding: 0px;
+}
+
+#mainmenu a,
+#mainmenu a.active {
+    font-size: 11px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px 4px 0px 4px;
+    height: 19px;
+    width: auto;
+    color: #FFFFFF;
+    background-color: transparent;
+    border-style: solid;
+    border-color: transparent;
+    border-width: 1px 1px 3px 1px;
+}
+
+#mainmenu a:hover,
+#mainmenu a.active {
+    color: #FFFFFF;
+}
+
+#mainmenu a.active {
+    font-weight: bold;
+    border-bottom-color: #EEEEEE;
+}
+
+#mainmenu li {
+    float: left;
+    position: relative;
+    list-style-type: none;
+    background-color: transparent;
+}
+
+#mainmenu li ul {
+    list-style-type: none;
+    display: none;
+    color: #000000;
+    position: absolute;
+    top: 28px;
+    border: 1px solid #000000;
+    text-align: left;
+    width: 200px;
+    height: auto;
+    z-index: 11;
+}
+
+#mainmenu li:hover ul {
+    display: block;
+}
+
+#mainmenu li ul li a {
+    background-color: #005E9E;
+    display: block;
+    width: 190px;
+    padding: 5px;
+    margin: 0px;
+    height: auto;
+    color: #FFFFFF;
+    border: none;
+    text-align: left;
+}
+
+#mainmenu li ul li a:hover {
+    background-color: #FFFFFF;
+    color: #005E9E;
+}
+
+#mainmenu .divider {
+    margin: 2px 0px 2px 0px;
+    padding: 0px;
+    height: 0px;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 1px 0px 1px 0px;
+    border-top-color: #AAAAAA;
+    border-bottom-color: #FFFFFF;
+    width: 200px;
+}
+
+#headerlangchoose {
+    position: absolute;
+    top: 142px;
+    left: 780px;
+    width: 60px;
+    text-align: right;
+    background-color: transparent;
+}
+
+#headertitle {
+    position: absolute;
+    top: 55px;
+    left: 120px;
+    text-align: left;
+    color: #FFFFFF;
+    font-family: Times New Roman;
+    font-weight: bold;
+    font-size: 21px;
+    background-color: transparent;
+}
+
+#headertitle_iaeste {
+    position: absolute;
+    top: 85px;
+    left: 120px;
+    text-align: left;
+    color: #FFFFFF;
+    font-size: 10px;
+    background-color: transparent;
+}
+
+#headerhomelink a {
+    position: absolute;
+    display: block;
+    top: 35px;
+    left: 65px;
+    width: 300px;
+    height: 90px;
+    background-color: transparent;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+#headimgbox {
+    position: relative;
+    background-color: transparent;
+    width: 860px;
+    height: 150px;
+    margin: 0px auto 0px auto;
+    padding: 0px;
+    text-align: left;
+    background-color: #CCCCCC;
+}
+
+#topmiddlesepbox {
+    position: relative;
+    background-color: transparent;
+    width: 868px;
+    height: 5px;
+    margin: 0px auto 0px auto;
+    padding: 0px;
+    text-align: left;
+}
+
+#middlebox {
+    background-repeat: repeat-y;
+    background-color: transparent;
+    text-align: left;
+    width: 868px;
+    min-height: 220px;
+    margin: 0px auto 0px auto;
+    padding: 0px;
+}
+
+#logobox {
+    background-image: url("iaestelogo.png");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    text-align: left;
+    width: 860px;
+    min-height: 220px;
+    margin: 0px 0px 0px 4px;
+}
+
+#leftcolumnbox {
+    position: relative;
+    width: 190px;
+    min-height: 100px;
+    margin: 0px;
+    padding: 0px;
+    float: left;
+    text-align: left;
+    background-color: transparent;
+}
+
+#rightcolumnbox {
+    width: 590px;
+    min-height: 100px;
+    margin: 10px 0 0 20px;
+    padding: 0px;
+    float: left;
+    text-align: left;
+    background-color: transparent;
+}
+
+#largecontentbox {
+    position: relative;
+    text-align: left;
+    background-color: transparent;
+    width: auto;
+    margin: auto;
+    padding: 25px 40px 25px 40px;
+}
+
+#hidecolumnbox {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 28px;
+    height: 23px;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    background-color: transparent;
+}
+
+#footerbox {
+    position: relative;
+    background-repeat: no-repeat;
+    width: 868px;
+    height: 32px;
+    margin: 0px auto 0px auto;
+    text-align: left;
+    clear: both;
+}
+
+#footermenu {
+    position: absolute;
+    top: 7px;
+    left: 20px;
+    text-align: left;
+    color: #FFFFFF;
+    background-color: transparent;
+}
+
+#footermenu a {
+    font-size: 11px;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+#footermenu a:hover {
+    text-decoration: underline;
+}
+
+#footercolorchoose {
+    position: absolute;
+    top: 9px;
+    left: 782px;
+    background-color: transparent;
+}
+
+#footercolorchoose a {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0px 0px 0px 2px;
+    text-decoration: none;
+    border: 1px solid #000000;
+}
+
+#footercolorchoose a:hover {
+    border: 1px solid #C0C0C0;
+}
+
+#submenu {
+    margin: 10px 0 20px 2px;
+}
+
+#submenu a,
+#submenu a.active,
+#submenu a:hover {
+    background-repeat: no-repeat;
+    font-size: 11px;
+    text-decoration: none;
+    text-align: right;
+    color: #FFFFFF;
+    border: none;
+    display: block;
+    height: 19px;
+    width: 170px;
+    padding: 5px 20px 0px 0px;
+    margin-bottom: 3px;
+}
+
+.submenu_divider {
+    height: 7px;
+    width: 190px;
+}
+
+#pinbox {
+    margin-top: 30px;
+    overflow: hidden;
+    font-size: 11px;
+    width: 190px;
+    background-color: transparent;
+    text-align: left;
+    font-size: 11px;
+}
+
+#pinbox * {
+    font-size: 11px;
+}
+
+#pinbox .headline {
+    color: #606060;
+    font-weight: bold;
+    background-image: url("leftcolline.png");
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    background-color: transparent;
+    padding: 5px 0px 4px 8px;
+}
+
+#pinbox .contentbox {
+    padding: 0px 0px 22px 8px;
+}
+
+#pinbox .datebox {
+    font-size: 10px;
+    padding: 5px 0px 6px 8px;
+    color: #808080;
+}
+
+#pinbox .newsdate {
+    color: #808080;
+    font-size: 10px;
+}
+
+input#email_address,
+label[for="email_address"] {
+    display: none;
+}
+
+#userbox {
+    margin-top: 30px;
+    overflow: hidden;
+    font-size: 11px;
+    width: 190px;
+    background-color: transparent;
+    text-align: left;
+    font-size: 11px;
+}
+
+#userbox * {
+    font-size: 11px;
+}
+
+#userbox .headline {
+    font-weight: bold;
+    background-image: url("leftcolline.png");
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    background-color: transparent;
+    padding: 5px 0px 4px 8px;
+}
+
+#userbox .contentbox {
+    padding: 0px 0px 22px 8px;
+}
+
+#userbox .datebox {
+    font-size: 10px;
+    padding: 5px 0px 6px 8px;
+    color: #808080;
+}
+
+#userbox hr {
+    border: 0px;
+    width: 100%;
+    border-top: dotted 1px #999999;
+    border-bottom: solid 1px #FFFFFF;
+}
+
+#userbox .box {
+    width: 152px;
+    background-color: #FFFFFF;
+    border: 1px dotted #AAAAAA;
+    padding: 5px 10px 5px 10px;
+}
+
+.sectionbox {
+    background-image: url("box/top.png");
+    background-repeat: repeat-x;
+    background-position: top left;
+    background-color: #FFFFFF;
+    border: solid 1px #E5E5E5;
+    min-height: 50px;
+    height: auto;
+    width: 100%;
+    text-align: left;
+    margin: 10px auto 10px auto;
+}
+
+.sectionbox_inner {
+    background-image: url("box/bottom.png");
+    background-repeat: repeat-x;
+    background-position: bottom left;
+    background-color: transparent;
+    width: 100%;
+    height: 100%
+}
+
+.centerspan {
+    text-align: center;
+    width: 100%;
+}
+
+a.opaclink img {
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+}
+
+a.opaclink:hover img {
+    filter: alpha(opacity=100);
+    opacity: 1.0;
+}
+
+a.opaclink80 img {
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+}
+
+a.opaclink80:hover img {
+    filter: alpha(opacity=100);
+    opacity: 1.0;
+}
+
+.pagenumbernav {
+    width: 100%;
+    text-align: center;
+}
+
+.pagenumbernav a {
+    font-size: 10px;
+    display: inline-block;
+    min-width: 11px;
+    height: 11px;
+    padding: 1px;
+    margin: 2px;
+    text-decoration: none;
+    color: #000000;
+    background-color: #F0F0F0;
+    border: 1px solid #808080;
+}
+
+.pagenumbernav a.active {
+    color: #FFFFFF;
+    background-color: #505050;
+}
+
+.pagenumbernav a:hover {
+    color: #FFFFFF;
+    background-color: #505050;
+}
+
+div.twocolumned {
+    float: left;
+    width: 100%;
+}
+
+div.twocolumned .left {
+    float: left;
+    width: 78%;
+    margin-right: 2%;
+}
+
+div.twocolumned .left p {
+    text-align: justify;
+}
+
+div.twocolumned .right {
+    float: left;
+    width: 20%;
+}
+
+div.twocolumned .right img {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.ui-proceed {
+    font-weight: bold;
+    font-size: 1.3em;
+    padding: 0.3em;
+}
+
+.banner ul li {
+    float: left;
+    height: 150px;
+    display: block;
+}
+
+.list-reset {
+    padding: 0;
+    margin: 0;
+}

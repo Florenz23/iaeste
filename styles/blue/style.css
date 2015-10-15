@@ -1,0 +1,62 @@
+
+body {
+	background-image: url("background.png");
+	background-color: #f8f8f8;
+}
+
+a {
+	color: #005e9e; /*lila:  #9e3c9b;*/
+}
+
+#mainmenu a {
+	color: #ffffff;
+}
+
+#submenu a {
+	color: #ffffff;
+}
+
+#mainmenu a:hover {
+	background-color: #ffffff;
+}
+
+#mainmenu a:hover {
+	color: #005e9e;
+}
+
+#mainmenu li:hover {
+	background-color: #005e9e;
+}
+
+#mainmenu  a:hover {
+	border-bottom-color: #005e9e;
+}
+
+#mainmenu li ul {
+	background-color: #005e9e;
+}
+
+#headbox {
+	background-image: url("topimg.png");
+}
+
+#footerbox {
+	background-image: url("footerimg.png");
+}
+
+#middlebox {
+	background-image: url("contentbox.png");
+}
+
+#topmiddlesepbox {
+	background-image: url("topmiddlesep.png");
+}
+
+#submenu a {
+	background-image: url("submenulink.png");
+}
+
+#submenu a.active, #submenu a:hover {
+	background-image: url("submenulinkactive.png");
+}
+

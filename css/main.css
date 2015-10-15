@@ -1,0 +1,83 @@
+.features .glyphicon {
+    font-size: 32px;
+}
+
+body {
+    /*margin-left: -25%;*/
+    padding-top: 30px;
+}
+.footer {
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 200px;
+}
+.footer {
+    color: #efefef;
+    background-color: #333;
+}
+.footer a {
+    color: #9af7fe;
+}
+
+.footer .glyphicon {
+    font-size: 14px;
+}
+
+.quote {
+    background-color: #444;
+    color: #e1e1e1;
+    margin: 2em 0;
+}
+.quote blockquote {
+    border: none;
+    margin: 0;
+}
+.quote footer {
+    color: #c1c1c1;
+}
+
+
+.transport-systems .row {
+    margin-bottom: 2em;
+}
+.transport-systems .glyphicon {
+    font-size: 14px;
+}
+
+.navbar {
+    background-color: #005E9E;
+}
+
+.navbar-default .navbar-brand {
+    color: #FFFFFF;
+}
+
+.navbar .nav > li > a {
+    float: none;
+    line-height: 19px;
+    padding: 9px 10px 11px;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+}
+
+.navbar-brand,
+.navbar-nav li a {
+    line-height: 70px;
+    height: 70px;
+    padding-top: 0;
+}
+
+.navbar-brand > img {
+    max-height: 100%;
+    height: 100%;
+    width: auto;
+    margin: 0 auto;
+
+    /* probably not needed anymore, but doesn't hurt */
+    -o-object-fit: contain;
+    object-fit: contain;
+
+}
+

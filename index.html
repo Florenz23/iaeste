@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang='en' ng-app="iaesteWeb">
 <head>
     <meta charset='UTF-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -9,54 +9,23 @@
 </head>
 <body>
 
-<div class='navbar navbar-default'>
-    <div class='container '>
-        <div class="navbar-header">
-            <a href='/' class="navbar-brand">
-                <img src="images/iaestelogo.jpg" alt="Dispute Bills">
-            </a>
 
-            <div class="navbar-brand header-text">
-                Iaeste Freiberg
-            </div>
-            <button type='button' class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <ul class="nav navbar-nav navbar-right navbar-static-top collapse navbar-collapse">
-            <li><a href='/'>Home</a></li>
-            <li><a href='incoming.html'>Incoming</a></li>
-            <li><a href='stations.html'>Outgoing</a></li>
-            <li><a href='stations.html'>Firmen</a></li>
-            <li>
-                <a href='#' data-toggle="dropdown">Contact <span class="caret"></span></a>
-                <ul class='dropdown-menu'>
-                    <li><a href="moin.html">Moin</a></li>
-                    <li><a href="moin.html">Moin</a></li>
-                    <li class="divider"></li>
-                    <li><a href="moin.html">Moin</a></li>
-                    <li><a href="moin.html">Moin</a></li>
-                    <li class="divider"></li>
-                    <li><a href="moin.html">Moin</a></li>
-                    <li><a href="moin.html">Moin</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</div>
+<main-header></main-header>
+
 <div class="container">
     <div class='row well well-lg'>
         <div class='col-md-6'>
-            <h2>Dein Weg ins Ausland mit Iaeste</h2>
+            <h2>Iaeste, dein Weg ins Ausland</h2>
 
             <p class='lead'>Absolviere ein technisches Paraktikum in 80 verschiedenen Ländern, sammle internationale
                 Erfahrung, knüpfte Kontakte und habe vor allem viel Spass. </p>
 
             <p>
-                <button type='button' class='btn btn-lg btn-primary'>Bewirb dich jetzt</button>
+
+            <form action="outgoing.html">
+                <button type='submit' class='btn btn-lg btn-primary'>Bewirb dich jetzt</button>
+            </form>
+
             </p>
         </div>
         <div class='col-md-6 visible-md visible-lg'>
@@ -69,124 +38,41 @@
     <div class='col-sm-4 col-xs-10 col-xs-offset-1 col-sm-offset-0'>
         <i class='glyphicon glyphicon-briefcase'></i>
 
-        <h3>Bewirb dich noch heute!</h3>
+        <h3>So funktioniert es</h3>
 
-        <p>Even if you're traveling tomorrow, you can still get tickets today. We have a number of conveniently
-            located ports around the globe to service everyone.</p>
+        <p>Du gibst zunächst hier auf der Website deine vorläufige Bewerbung ab.
+            Ab Februar wird entschieden, welche Praktika für Studierende aus Karlsruhe zur Verfügung stehen.
+            Zu diesen Stellen gibt es Auswahlgespräche - wenn du dich hier durchsetzt, steht deinem Praktikum nichts
+            mehr im Wege!/p>
     </div>
 
     <div class='col-sm-4 col-xs-6'>
         <i class='glyphicon glyphicon-random'></i>
 
-        <h3>Die Welt steht dir offen</h3>
+        <h3>Bezahlt und fachbezogen</h3>
 
-        <p>If you need to get to space today, why not try out a transporter? Despite the claims, there are have been
-            no deaths in the last 6 weeks!</p>
+        <p>Alle IAESTE-Praktika sind Fachpraktika - kein Kaffee kochen, sondern Arbeit die zu deinem Studienfach passt!
+            Die Bezahlung ist von Land zu Land unterschiedlich, deckt aber mindestens die Lebenshaltungskosten im
+            Gastland. Außerhalb Europas besteht außerdem Anspruch auf einen Reisekostenzuschuss vom DAAD./p>
     </div>
 
     <div class='col-sm-4 col-xs-6'>
         <i class='glyphicon glyphicon-send'></i>
 
-        <h3>Informiere Dich</h3>
+        <h3>Teilnehmende Länder</h3>
 
-        <p>For cheapest fares, catch the next RocketBus&reg; to the stars. Cheaper on your wallet, and easiest way
-            to make friends.</p>
+        <p>IAESTE gibt es in über 80 Ländern weltweit!
+            Wolltest du schon immer mal nach Brasilien, China, Thailand oder Israel?
+            Dürfen es vielleicht auch Ghana, Bosnien, Kolumbien, der Iran oder Kasachstan sein?
+            Oder vielleicht doch eher Norwegen, Polen oder die Türkei?</p>
     </div>
 </div>
 
-
-<div class="container">
-    <div class="row">
-        <div class='col-md-4'>
-            <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
-                <li><a data-toggle="pill" href="#menu1">Menu 1</a></li>
-                <li><a data-toggle="pill" href="#menu2">Menu 2</a></li>
-                <li><a data-toggle="pill" href="#menu3">Menu 3</a></li>
-            </ul>
-        </div>
-
-        <div class='col-md-8'>
-            <div class="tab-content">
-                <div id="home" class="tab-pane fade in active">
-                    <h3>HOME</h3>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
-                </div>
-                <div id="menu1" class="tab-pane fade">
-                    <h3>Menu 1</h3>
-
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.</p>
-                </div>
-                <div id="menu2" class="tab-pane fade">
-                    <h3>Menu 2</h3>
-
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                        totam rem aperiam.</p>
-                </div>
-                <div id="menu3" class="tab-pane fade">
-                    <h3>Menu 3</h3>
-
-                    <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                        explicabo.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class='footer'>
-    <div class='container'>
-        <div class='row'>
-            <div class='col-md-3 col-sm-4 col-xs-6'>
-                <h4>Who We Are</h4>
-
-                <p><i>Blasting Off With Bootstrap</i> is the fastest way to space. <a href='tickets.html'>Book your
-                    ticket today</a>!</p>
-
-                <p><a href='about.html'>More About Us <i class='glyphicon glyphicon-arrow-right'></i></a></p>
-            </div>
-
-            <div class='col-md-offset-1 col-sm-2 col-xs-6'>
-                <h4>Links</h4>
-                <ul class='list-unstyled'>
-                    <li><a href='/'>Home</a></li>
-                    <li><a href='tickets.html'>Tickets</a></li>
-                    <li><a href='stations.html'>Stations</a></li>
-                </ul>
-            </div>
-
-            <div class='clearfix visible-xs'></div>
-
-            <div class='col-sm-2 col-xs-6'>
-                <h4>Stay in Touch</h4>
-                <ul class='list-unstyled'>
-                    <li><a href='about.html'>About</a></li>
-                    <li><a href='contact.html'>Contact Us</a></li>
-                    <li><a href='/blog'>Blog</a></li>
-                    <li><a href='http://twitter.com/codeschool'>Twitter</a></li>
-                    <li><a href='http://facebook.com/codeschool'>Facebook</a></li>
-                </ul>
-            </div>
-
-            <div class='col-md-3 col-md-offset-1 col-sm-4 col-xs-6'>
-                <h4>Contact Us</h4>
-                <ul class='list-unstyled'>
-                    <li><i class='glyphicon glyphicon-globe'></i> Orlando, FL</li>
-                    <li><i class='glyphicon glyphicon-phone'></i> 1-555-blast-off</li>
-                    <li><i class='glyphicon glyphicon-envelope'></i> <a href='mailto:blastingoff@codeschool.com'>blastingoff@codeschool.com</a>
-                    </li>
-                </ul>
-                <p>Blasting Off With Bootstrap &copy;2214.</p>
-            </div>
-        </div>
-    </div>
-</div>
+<main-footer></main-footer>
 <script src="libs/jquery.min.js"></script>
 <script src="libs/bootstrap.min.js"></script>
+<script src="libs/angular.min.js"></script>
+<script src="js/app.js"></script>
 </div>
 </body>
 </html>

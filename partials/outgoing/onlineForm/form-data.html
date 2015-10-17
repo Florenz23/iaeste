@@ -1,0 +1,56 @@
+<h3>Persönliche Daten</h3>
+
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="form-group" show-errors='{showSuccess: true}'>
+                <label class="control-label">Nachname</label>
+                <input ng-model="student.nachname" type="text" class="form-control" name="nachname"
+                       required/>
+
+                <p class="help-block" ng-if="studentForm.nachname.$error.required">Bitte gib deinen Nachnamen ein.</p>
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+            <div class="form-group" show-errors='{showSuccess: true}'>
+                <label class="control-label">Vorname</label>
+                <input ng-model="student.vorname" type="text" class="form-control" name="vorname"
+                       required/>
+
+                <p class="help-block" ng-if="studentForm.vorname.$error.required">Bitte gib deinen Vornamen ein.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="form-group" show-errors='{showSuccess: true}'>
+                <label class="control-label">Geburtstag</label>
+                <input ng-model="student.geburtstag" type="date" class="form-control" name="geburtstag"
+                       required/>
+
+                <p class="help-block" ng-if="studentForm.geburtstag.$error.required">Bitte gib ein glültiges Datum ein.</p>
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+            <div class="form-group" show-errors='{showSuccess: true}'>
+                <label class="control-label">Email</label>
+                <input ng-model="student.email" type="email" class="form-control" name="email"
+                       required/>
+
+                <p class="help-block" ng-if="studentForm.email.$error.required">Bitte gib eine gültige Emailadresse ein.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="form-group" show-errors='{showSuccess: true}'>
+                <label class="control-label">Mobil</label>
+                <input ng-model="student.mobil" type="text" class="form-control" name="mobil"
+                       />
+            </div>
+        </div>
+        <div class="col-xs-6">
+        </div>
+    </div>
+<form-button></form-button>

@@ -53,7 +53,7 @@
      */
 
     ngTouch.factory('$swipe', [function() {
-        // The total distance in any direction before we make the call on swipe vs. scroll.
+        // The total distance in any direction before lcfreiberg make the call on swipe vs. scroll.
         var MOVE_BUFFER_RADIUS = 10;
 
         var POINTER_EVENTS = {
@@ -114,7 +114,7 @@
              *
              * Once this threshold is exceeded, either the horizontal or vertical delta is greater.
              * - If the horizontal distance is greater, this is a swipe and `move` and `end` events follow.
-             * - If the vertical distance is greater, this is a scroll, and we let the browser take over.
+             * - If the vertical distance is greater, this is a scroll, and lcfreiberg let the browser take over.
              *   A `cancel` event is sent.
              *
              * `move` is called on `mousemove` and `touchmove` after the above logic has determined that
@@ -122,7 +122,7 @@
              *
              * `end` is called when a swipe is successfully completed with a `touchend` or `mouseup`.
              *
-             * `cancel` is called either on a `touchcancel` from the browser, or when we begin scrolling
+             * `cancel` is called either on a `touchcancel` from the browser, or when lcfreiberg begin scrolling
              * as described above.
              *
              */
@@ -156,11 +156,11 @@
                 element.on(getEvents(pointerTypes, 'move'), function(event) {
                     if (!active) return;
 
-                    // Android will send a touchcancel if it thinks we're starting to scroll.
+                    // Android will send a touchcancel if it thinks lcfreiberg're starting to scroll.
                     // So when the total distance (+ or - or both) exceeds 10px in either direction,
-                    // we either:
-                    // - On totalX > totalY, we send preventDefault() and treat this as a swipe.
-                    // - On totalY > totalX, we let the browser handle it as a scroll.
+                    // lcfreiberg either:
+                    // - On totalX > totalY, lcfreiberg send preventDefault() and treat this as a swipe.
+                    // - On totalY > totalX, lcfreiberg let the browser handle it as a scroll.
 
                     if (!startCoords) return;
                     var coords = getCoordinates(event);
@@ -264,7 +264,7 @@
             // double-tapping, and then fire a click event.
             //
             // This delay sucks and makes mobile apps feel unresponsive.
-            // So we detect touchstart, touchcancel and touchend ourselves and determine when
+            // So lcfreiberg detect touchstart, touchcancel and touchend ourselves and determine when
             // the user has tapped on something.
             //
             // What happens when the browser then generates a click event?
@@ -325,7 +325,7 @@
                 var x = touches[0].clientX;
                 var y = touches[0].clientY;
                 // Work around desktop Webkit quirk where clicking a label will fire two clicks (on the label
-                // and on the input element). Depending on the exact browser, this second click we don't want
+                // and on the input element). Depending on the exact browser, this second click lcfreiberg don't want
                 // to bust has either (0,0), negative coordinates, or coordinates equal to triggering label
                 // click event
                 if (x < 1 && y < 1) {
@@ -345,13 +345,13 @@
                 }
 
                 // Look for an allowable region containing this click.
-                // If we find one, that means it was created by touchstart and not removed by
-                // preventGhostClick, so we don't bust it.
+                // If lcfreiberg find one, that means it was created by touchstart and not removed by
+                // preventGhostClick, so lcfreiberg don't bust it.
                 if (checkAllowableRegions(touchCoordinates, x, y)) {
                     return;
                 }
 
-                // If we didn't find an allowable region, bust the click.
+                // If lcfreiberg didn't find an allowable region, bust the click.
                 event.stopPropagation();
                 event.preventDefault();
 
@@ -361,7 +361,7 @@
 
 
             // Global touchstart handler that creates an allowable region for a click event.
-            // This allowable region can be removed by preventGhostClick if we want to bust it.
+            // This allowable region can be removed by preventGhostClick if lcfreiberg want to bust it.
             function onTouchStart(event) {
                 var touches = event.touches && event.touches.length ? event.touches : [event];
                 var x = touches[0].clientX;
@@ -578,7 +578,7 @@
                 function validSwipe(coords) {
                     // Check that it's within the coordinates.
                     // Absolute vertical distance must be within tolerances.
-                    // Horizontal distance, we take the current X - the starting X.
+                    // Horizontal distance, lcfreiberg take the current X - the starting X.
                     // This is negative for leftward swipes and positive for rightward swipes.
                     // After multiplying by the direction (-1 for left, +1 for right), legal swipes
                     // (ie. same direction as the directive wants) will have a positive delta and

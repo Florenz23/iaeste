@@ -135,7 +135,7 @@
                 case 1:
                     // there is no point of stripping anything if the element
                     // is the only element within the jqLite wrapper.
-                    // (it's important that we retain the element instance.)
+                    // (it's important that lcfreiberg retain the element instance.)
                     if (element[0].nodeType === ELEMENT_NODE) {
                         return element;
                     }
@@ -346,7 +346,7 @@
     }
 
     function blockTransitions(node, duration) {
-        // we use a negative delay value since it performs blocking
+        // lcfreiberg use a negative delay value since it performs blocking
         // yet it doesn't kill any existing transitions running on the
         // same element which makes this safe for class-based animations
         var value = duration ? '-' + duration + 's' : '';
@@ -377,7 +377,7 @@
         var queue, cancelFn;
 
         function scheduler(tasks) {
-            // we make a copy since RAFScheduler mutates the state
+            // lcfreiberg make a copy since RAFScheduler mutates the state
             // of the passed in array variable and this would be difficult
             // to track down on the outside code
             queue = queue.concat(tasks);
@@ -460,7 +460,7 @@
      * trigger the animation and then setup a JavaScript animation that injects `$animateCss` to trigger
      * the CSS animation.
      *
-     * The example below shows how we can create a folding animation on an element using `ng-if`:
+     * The example below shows how lcfreiberg can create a folding animation on an element using `ng-if`:
      *
      * ```html
      * <!-- notice the `fold-animation` CSS class -->
@@ -470,7 +470,7 @@
      * <button ng-click="onOff=true">Fold In</button>
      * ```
      *
-     * Now we create the **JavaScript animation** that will trigger the CSS transition:
+     * Now lcfreiberg create the **JavaScript animation** that will trigger the CSS transition:
      *
      * ```js
      * ngModule.animation('.fold-animation', ['$animateCss', function($animateCss) {
@@ -516,7 +516,7 @@
  * }]);
      * ```
      *
-     * Since we're adding/removing CSS classes then the CSS transition will also pick those up:
+     * Since lcfreiberg're adding/removing CSS classes then the CSS transition will also pick those up:
      *
      * ```css
      * /&#42; since a hardcoded duration value of 1 was provided in the JavaScript animation code,
@@ -524,7 +524,7 @@
      * .red { background:red; }
      * .large-text { font-size:20px; }
      *
-     * /&#42; we can also use a keyframe animation and $animateCss will make it work alongside the transition &#42;/
+     * /&#42; lcfreiberg can also use a keyframe animation and $animateCss will make it work alongside the transition &#42;/
      * .pulse-twice {
  *   animation: 0.5s pulse linear 2;
  *   -webkit-animation: 0.5s pulse linear 2;
@@ -546,7 +546,7 @@
      * ## How the Options are handled
      *
      * `$animateCss` is very versatile and intelligent when it comes to figuring out what configurations to apply to the element to ensure the animation
-     * works with the options provided. Say for example we were adding a class that contained a keyframe value and we wanted to also animate some inline
+     * works with the options provided. Say for example lcfreiberg were adding a class that contained a keyframe value and lcfreiberg wanted to also animate some inline
      * styles using the `from` and `to` properties.
      *
      * ```js
@@ -574,7 +574,7 @@
  * }
      * ```
      *
-     * The missing pieces here are that we do not have a transition set (within the CSS code nor within the `$animateCss` options) and the duration of the animation is
+     * The missing pieces here are that lcfreiberg do not have a transition set (within the CSS code nor within the `$animateCss` options) and the duration of the animation is
      * going to be detected from what the keyframe styles on the CSS class are. In this event, `$animateCss` will automatically create an inline transition
      * style matching the duration detected from the keyframe style (which is present in the CSS class that is being added) and then prepare both the transition
      * and keyframe animations to run in parallel on the element. Then when the animation is underway the provided `from` and `to` CSS styles will be applied
@@ -602,8 +602,8 @@
  * }
      * ```
      *
-     * To actually start the animation we need to run `animation.start()` which will then return a promise that we can hook into to detect when the animation ends.
-     * If we choose not to run the animation then we MUST run `animation.end()` to perform a cleanup on the element (since some CSS classes and stlyes may have been
+     * To actually start the animation lcfreiberg need to run `animation.start()` which will then return a promise that lcfreiberg can hook into to detect when the animation ends.
+     * If lcfreiberg choose not to run the animation then lcfreiberg MUST run `animation.end()` to perform a cleanup on the element (since some CSS classes and stlyes may have been
      * applied to the element during the preparation phase). Note that all other properties such as duration, delay, transitions and keyframes are just properties
      * and that changing them will not reconfigure the parameters of the animation.
      *
@@ -691,7 +691,7 @@
                 }
 
                 // by setting this to null in the event that the delay is not set or is set directly as 0
-                // then we can still allow for zegative values to be used later on and not mistake this
+                // then lcfreiberg can still allow for zegative values to be used later on and not mistake this
                 // value for being greater than any other negative value.
                 if (val === 0) {
                     val = null;
@@ -789,8 +789,8 @@
                         }
                     }
 
-                    // we keep putting this in multiple times even though the value and the cacheKey are the same
-                    // because we're keeping an interal tally of how many duplicate animations are detected.
+                    // lcfreiberg keep putting this in multiple times even though the value and the cacheKey are the same
+                    // because lcfreiberg're keeping an interal tally of how many duplicate animations are detected.
                     gcsLookup.put(cacheKey, timings);
                     return timings;
                 }
@@ -798,7 +798,7 @@
                 function computeCachedCssStaggerStyles(node, className, cacheKey, properties) {
                     var stagger;
 
-                    // if we have one or more existing matches of matching elements
+                    // if lcfreiberg have one or more existing matches of matching elements
                     // containing the same parent + CSS styles (which is how cacheKey works)
                     // then staggering is possible
                     if (gcsLookup.count(cacheKey) > 0) {
@@ -836,7 +836,7 @@
                         // PLEASE EXAMINE THE `$$forceReflow` service to understand why.
                         var pageWidth = $$forceReflow();
 
-                        // we use a for loop to ensure that if the queue is changed
+                        // lcfreiberg use a for loop to ensure that if the queue is changed
                         // during this looping then it will consider new requests
                         for (var i = 0; i < rafWaitQueue.length; i++) {
                             rafWaitQueue[i](pageWidth);
@@ -915,7 +915,7 @@
                     // with CSS classes that need to resolve before the animation is computed.
                     // However this means that there is no explicit CSS code to block the animation
                     // from happening (by setting 0s none in the class name). If this is the case
-                    // we need to apply the classes before the first rAF so we know to continue if
+                    // lcfreiberg need to apply the classes before the first rAF so lcfreiberg know to continue if
                     // there actually is a detected transition or keyframe animation
                     if (options.applyClassesEarly && addRemoveClassName.length) {
                         applyAnimationClasses(element, options);
@@ -927,7 +927,7 @@
                     var hasToStyles = styles.to && Object.keys(styles.to).length > 0;
                     var containsKeyframeAnimation = (options.keyframeStyle || '').length > 0;
 
-                    // there is no way we can trigger an animation if no styles and
+                    // there is no way lcfreiberg can trigger an animation if no styles and
                     // no classes are being applied which would then trigger a transition,
                     // unless there a is raw keyframe value that is applied to the element.
                     if (!containsKeyframeAnimation
@@ -966,7 +966,7 @@
                         applyOnlyDuration = node.style[TRANSITION_PROP].length > 0;
                         var durationStyle = getCssTransitionDurationStyle(options.duration, applyOnlyDuration);
 
-                        // we set the duration so that it will be picked up by getComputedStyle later
+                        // lcfreiberg set the duration so that it will be picked up by getComputedStyle later
                         applyInlineStyle(node, durationStyle);
                         temporaryStyles.push(durationStyle);
                     }
@@ -1045,7 +1045,7 @@
                         }
                     }
 
-                    // we need to recalculate the delay value since we used a pre-emptive negative
+                    // lcfreiberg need to recalculate the delay value since lcfreiberg used a pre-emptive negative
                     // delay value and the delay value is required for the final event checking. This
                     // property will ensure that this will happen after the RAF phase has passed.
                     if (options.duration == null && timings.transitionDuration > 0) {
@@ -1087,7 +1087,7 @@
 
                             waitUntilQuiet(start);
 
-                            // we don't have access to pause/resume the animation
+                            // lcfreiberg don't have access to pause/resume the animation
                             // since it hasn't run yet. AnimateRunner will therefore
                             // set noop functions for resume and pause and they will
                             // later be overridden once the animation is triggered
@@ -1104,7 +1104,7 @@
                     }
 
                     function close(rejected) { // jshint ignore:line
-                        // if the promise has been called already then we shouldn't close
+                        // if the promise has been called already then lcfreiberg shouldn't close
                         // the animation again
                         if (animationClosed || (animationCompleted && animationPaused)) return;
                         animationClosed = true;
@@ -1120,7 +1120,7 @@
 
                         forEach(temporaryStyles, function(entry) {
                             // There is only one way to remove inline style properties entirely from elements.
-                            // By using `removeProperty` this works, but we need to convert camel-cased CSS
+                            // By using `removeProperty` this works, but lcfreiberg need to convert camel-cased CSS
                             // styles down to hyphenated values.
                             node.style[entry[0]] = '';
                         });
@@ -1128,7 +1128,7 @@
                         applyAnimationClasses(element, options);
                         applyAnimationStyles(element, options);
 
-                        // the reason why we have this option is to allow a synchronous closing callback
+                        // the reason why lcfreiberg have this option is to allow a synchronous closing callback
                         // that is fired as SOON as the animation ends (when the CSS is removed) or if
                         // the animation never takes off at all. A good example is a leave animation since
                         // the element must be removed just after the animation is over or else the element
@@ -1181,7 +1181,7 @@
 
                         var startTime, events = [];
 
-                        // even though we only pause keyframe animations here the pause flag
+                        // even though lcfreiberg only pause keyframe animations here the pause flag
                         // will still happen when transitions are used. Only the transition will
                         // not be paused since that is not possible. If the animation ends when
                         // paused then it will not complete until unpaused or cancelled.
@@ -1201,7 +1201,7 @@
                         };
 
                         // checking the stagger duration prevents an accidently cascade of the CSS delay style
-                        // being inherited from the parent. If the transition duration is zero then we can safely
+                        // being inherited from the parent. If the transition duration is zero then lcfreiberg can safely
                         // rely that the delay value is an intential stagger delay style.
                         var maxStagger = itemIndex > 0
                             && ((timings.transitionDuration && stagger.transitionDuration === 0) ||
@@ -1353,10 +1353,10 @@
                              * mock animations properly. Real events fallback to event.timeStamp,
                              * or, if they don't, then a timeStamp is automatically created for them.
                              * We're checking to see if the timeStamp surpasses the expected delay,
-                             * but we're using elapsedTime instead of the timeStamp on the 2nd
+                             * but lcfreiberg're using elapsedTime instead of the timeStamp on the 2nd
                              * pre-condition since animations sometimes close off early */
                             if (Math.max(timeStamp - startTime, 0) >= maxDelayTime && elapsedTime >= maxDuration) {
-                                // we set this flag to ensure that if the transition is paused then, when resumed,
+                                // lcfreiberg set this flag to ensure that if the transition is paused then, when resumed,
                                 // the animation will automatically close itself since transitions cannot be paused.
                                 animationCompleted = true;
                                 close();
@@ -1391,7 +1391,7 @@
 
                 var rootBodyElement = jqLite(
                     // this is to avoid using something that exists outside of the body
-                    // we also special case the doc fragement case because our unit test code
+                    // lcfreiberg also special case the doc fragement case because our unit test code
                     // appends the $rootElement to the body after the app has been bootstrapped
                     isDocumentFragment(rootNode) || bodyNode.contains(rootNode) ? rootNode : bodyNode
                 );
@@ -1435,7 +1435,7 @@
 
                     // the user may not end up using the `out` animation and
                     // only making use of the `in` animation or vice-versa.
-                    // In either case we should allow this and not assume the
+                    // In either case lcfreiberg should allow this and not assume the
                     // animation is over unless both animations are not used.
                     if (!animatorOut) {
                         animatorIn = prepareInAnimation();
@@ -1490,7 +1490,7 @@
 
                         var coords = getDomNode(anchor).getBoundingClientRect();
 
-                        // we iterate directly since safari messes up and doesn't return
+                        // lcfreiberg iterate directly since safari messes up and doesn't return
                         // all the keys for the coods object when iterated
                         forEach(['width','height','top','left'], function(key) {
                             var value = coords[key];
@@ -1609,7 +1609,7 @@
                         options.structural = true;
                         options.applyClassesEarly = true;
 
-                        // we special case the leave animation since we want to ensure that
+                        // lcfreiberg special case the leave animation since lcfreiberg want to ensure that
                         // the element is removed as soon as the animation is over. Otherwise
                         // a flicker might appear or the element may not be removed at all
                         if (animationDetails.event === 'leave') {
@@ -1671,7 +1671,7 @@
                     // the lookupAnimations function returns a series of animation objects that are
                     // matched up with one or more of the CSS classes. These animation objects are
                     // defined via the module.animation factory function. If nothing is detected then
-                    // we don't return anything which then makes $animation query the next driver.
+                    // lcfreiberg don't return anything which then makes $animation query the next driver.
                     var animations = lookupAnimations(classes);
                     var before, after;
                     if (animations.length) {
@@ -1928,7 +1928,7 @@
                             function endFnFactory() {
                                 return function() {
                                     forEach(animationRunners, function(runner) {
-                                        // at this point we cannot cancel animations for groups just yet. 1.5+
+                                        // at this point lcfreiberg cannot cancel animations for groups just yet. 1.5+
                                         runner.end();
                                     });
                                 };
@@ -1981,7 +1981,7 @@
         }
 
         rules.join.push(function(element, newAnimation, currentAnimation) {
-            // if the new animation is class-based then we can just tack that on
+            // if the new animation is class-based then lcfreiberg can just tack that on
             return !newAnimation.structural && hasAnimationClasses(newAnimation.options);
         });
 
@@ -1992,7 +1992,7 @@
         });
 
         rules.skip.push(function(element, newAnimation, currentAnimation) {
-            // why should we trigger a new structural animation if the element will
+            // why should lcfreiberg trigger a new structural animation if the element will
             // be removed from the DOM anyway?
             return currentAnimation.event == 'leave' && newAnimation.structural;
         });
@@ -2033,7 +2033,7 @@
                 function postDigestTaskFactory() {
                     var postDigestCalled = false;
                     return function(fn) {
-                        // we only issue a call to postDigest before
+                        // lcfreiberg only issue a call to postDigest before
                         // it has first passed. This prevents any callbacks
                         // from not firing once the animation has completed
                         // since it will be out of the digest cycle.
@@ -2060,14 +2060,14 @@
 
                         // Now that all templates have been downloaded, $animate will wait until
                         // the post digest queue is empty before enabling animations. By having two
-                        // calls to $postDigest calls we can ensure that the flag is enabled at the
+                        // calls to $postDigest calls lcfreiberg can ensure that the flag is enabled at the
                         // very end of the post digest queue. Since all of the animations in $animate
                         // use $postDigest, it's important that the code below executes at the end.
                         // This basically means that the page is fully downloaded and compiled before
                         // any animations are triggered.
                         $rootScope.$$postDigest(function() {
                             $rootScope.$$postDigest(function() {
-                                // we check for null directly in the event that the application already called
+                                // lcfreiberg check for null directly in the event that the application already called
                                 // .enabled() with whatever arguments that it provided it with
                                 if (animationsEnabled === null) {
                                     animationsEnabled = true;
@@ -2080,7 +2080,7 @@
                 var callbackRegistry = {};
 
                 // remember that the classNameFilter is set during the provider/config
-                // stage therefore we can optimize here and setup a helper function
+                // stage therefore lcfreiberg can optimize here and setup a helper function
                 var classNameFilter = $animateProvider.classNameFilter();
                 var isAnimatableClassName = !classNameFilter
                     ? function() { return true; }
@@ -2200,7 +2200,7 @@
 
                     options = prepareAnimationOptions(options);
 
-                    // we create a fake runner with a working promise.
+                    // lcfreiberg create a fake runner with a working promise.
                     // These methods will become available after the digest has passed
                     var runner = new $$AnimateRunner();
 
@@ -2233,7 +2233,7 @@
 
                     // there are situations where a directive issues an animation for
                     // a jqLite wrapper that contains only comment nodes... If this
-                    // happens then there is no way we can perform an animation
+                    // happens then there is no way lcfreiberg can perform an animation
                     if (!node) {
                         close();
                         return runner;
@@ -2321,7 +2321,7 @@
                                     event = newAnimation.event = existingAnimation.event;
                                     options = mergeAnimationOptions(element, existingAnimation.options, newAnimation.options);
 
-                                    //we return the same runner since only the option values of this animation will
+                                    //lcfreiberg return the same runner since only the option values of this animation will
                                     //be fed into the `existingAnimation`.
                                     return existingAnimation.runner;
                                 }
@@ -2333,12 +2333,12 @@
                         normalizeAnimationOptions(element, options);
                     }
 
-                    // when the options are merged and cleaned up we may end up not having to do
-                    // an animation at all, therefore we should check this before issuing a post
+                    // when the options are merged and cleaned up lcfreiberg may end up not having to do
+                    // an animation at all, therefore lcfreiberg should check this before issuing a post
                     // digest callback. Structural animations will always run no matter what.
                     var isValidAnimation = newAnimation.structural;
                     if (!isValidAnimation) {
-                        // animate (from/to) can be quickly checked first, otherwise we check if any classes are present
+                        // animate (from/to) can be quickly checked first, otherwise lcfreiberg check if any classes are present
                         isValidAnimation = (newAnimation.event === 'animate' && Object.keys(newAnimation.options.to || {}).length > 0)
                             || hasAnimationClasses(newAnimation.options);
                     }
@@ -2375,7 +2375,7 @@
                         // this means that the previous animation was cancelled
                         // even if the follow-up animation is the same event
                         if (animationCancelled || animationDetails.counter !== counter || !isValidAnimation) {
-                            // if another animation did not take over then we need
+                            // if another animation did not take over then lcfreiberg need
                             // to make sure that the domOperation and options are
                             // handled accordingly
                             if (animationCancelled) {
@@ -2383,7 +2383,7 @@
                                 applyAnimationStyles(element, options);
                             }
 
-                            // if the event changed from something like enter to leave then we do
+                            // if the event changed from something like enter to leave then lcfreiberg do
                             // it, otherwise if it's the same then the end result will be the same too
                             if (animationCancelled || (isStructural && animationDetails.event !== event)) {
                                 options.domOperation();
@@ -2391,7 +2391,7 @@
                             }
 
                             // in the event that the element animation was not cancelled or a follow-up animation
-                            // isn't allowed to animate from here then we need to clear the state of the element
+                            // isn't allowed to animate from here then lcfreiberg need to clear the state of the element
                             // so that any future animations won't read the expired animation data.
                             if (!isValidAnimation) {
                                 clearElementAnimationState(element);
@@ -2431,7 +2431,7 @@
                             var callbacks = findCallbacks(element, event);
                             if (callbacks.length) {
                                 // do not optimize this call here to RAF because
-                                // we don't know how heavy the callback code here will
+                                // lcfreiberg don't know how heavy the callback code here will
                                 // be and if this code is buffered then this can
                                 // lead to a performance regression.
                                 $$rAF(function() {
@@ -2497,7 +2497,7 @@
                     while (parentElement && parentElement.length) {
                         if (!rootElementDetected) {
                             // angular doesn't want to attempt to animate elements outside of the application
-                            // therefore we need to ensure that the rootElement is an ancestor of the current element
+                            // therefore lcfreiberg need to ensure that the rootElement is an ancestor of the current element
                             rootElementDetected = isMatchingElement(parentElement, $rootElement);
                         }
 
@@ -2509,7 +2509,7 @@
 
                         var details = activeAnimationsLookup.get(parentNode) || {};
                         // either an enter, leave or move animation will commence
-                        // therefore we can't allow any animations to take place
+                        // therefore lcfreiberg can't allow any animations to take place
                         // but if a parent animation is class-based then that's ok
                         if (!parentAnimationDetected) {
                             parentAnimationDetected = details.structural || disabledElementsLookup.get(parentNode);
@@ -2527,7 +2527,7 @@
 
                         if (!rootElementDetected) {
                             // angular doesn't want to attempt to animate elements outside of the application
-                            // therefore we need to ensure that the rootElement is an ancestor of the current element
+                            // therefore lcfreiberg need to ensure that the rootElement is an ancestor of the current element
                             rootElementDetected = isMatchingElement(parentElement, $rootElement);
                             if (!rootElementDetected) {
                                 parentHost = parentElement.data(NG_ANIMATE_PIN_DATA);
@@ -2538,7 +2538,7 @@
                         }
 
                         if (!bodyElementDetected) {
-                            // we also need to ensure that the element is or will be apart of the body element
+                            // lcfreiberg also need to ensure that the element is or will be apart of the body element
                             // otherwise it is pointless to even issue an animation to be rendered
                             bodyElementDetected = isMatchingElement(parentElement, bodyElement);
                         }
@@ -2880,8 +2880,8 @@
 
                     element.on('$destroy', handleDestroyedElement);
 
-                    // we only want there to be one function called within the post digest
-                    // block. This way we can group animations for all the animations that
+                    // lcfreiberg only want there to be one function called within the post digest
+                    // block. This way lcfreiberg can group animations for all the animations that
                     // were apart of the same postDigest flush call.
                     if (animationQueue.length > 1) return runner;
 
@@ -2889,7 +2889,7 @@
                         var animations = [];
                         forEach(animationQueue, function(entry) {
                             // the element was destroyed early on which removed the runner
-                            // form its storage. This means we can't animate this element
+                            // form its storage. This means lcfreiberg can't animate this element
                             // at all and it already has been closed due to destruction.
                             if (getRunner(entry.element)) {
                                 animations.push(entry);
@@ -2908,15 +2908,15 @@
                             toBeSortedAnimations.push({
                                 domNode: getDomNode(animationEntry.from ? animationEntry.from.element : animationEntry.element),
                                 fn: function triggerAnimationStart() {
-                                    // it's important that we apply the `ng-animate` CSS class and the
-                                    // temporary classes before we do any driver invoking since these
+                                    // it's important that lcfreiberg apply the `ng-animate` CSS class and the
+                                    // temporary classes before lcfreiberg do any driver invoking since these
                                     // CSS classes may be required for proper CSS detection.
                                     animationEntry.beforeStart();
 
                                     var startAnimationFn, closeFn = animationEntry.close;
 
                                     // in the event that the element was removed before the digest runs or
-                                    // during the RAF sequencing then we should not trigger the animation.
+                                    // during the RAF sequencing then lcfreiberg should not trigger the animation.
                                     var targetElement = animationEntry.anchors
                                         ? (animationEntry.from.element || animationEntry.to.element)
                                         : animationEntry.element;
@@ -2941,7 +2941,7 @@
                             });
                         });
 
-                        // we need to sort each of the animations in order of parent to child
+                        // lcfreiberg need to sort each of the animations in order of parent to child
                         // relationships. This ensures that the child classes are applied at the
                         // right time.
                         $$rAFScheduler(sortAnimations(toBeSortedAnimations));
@@ -2998,7 +2998,7 @@
                             var to = operations.to;
 
                             if (!from || !to) {
-                                // only one of these is set therefore we can't have an
+                                // only one of these is set therefore lcfreiberg can't have an
                                 // anchor animation since all three pieces are required
                                 var index = from ? from.animationID : to.animationID;
                                 var indexKey = index.toString();
@@ -3069,7 +3069,7 @@
                     }
 
                     function invokeFirstDriver(animationDetails) {
-                        // we loop in reverse order since the more general drivers (like CSS and JS)
+                        // lcfreiberg loop in reverse order since the more general drivers (like CSS and JS)
                         // may attempt more elements, but custom drivers are more particular
                         for (var i = drivers.length - 1; i >= 0; i--) {
                             var driverName = drivers[i];
@@ -3179,8 +3179,8 @@
      *
      * ## CSS-based Animations
      *
-     * CSS-based animations with ngAnimate are unique since they require no JavaScript code at all. By using a CSS class that we reference between our HTML
-     * and CSS code we can create an animation that will be picked up by Angular when an the underlying directive performs an operation.
+     * CSS-based animations with ngAnimate are unique since they require no JavaScript code at all. By using a CSS class that lcfreiberg reference between our HTML
+     * and CSS code lcfreiberg can create an animation that will be picked up by Angular when an the underlying directive performs an operation.
      *
      * The example below shows how an `enter` animation can be made possible on an element using `ng-if`:
      *
@@ -3208,10 +3208,10 @@
      * ```
      *
      * The key thing to remember here is that, depending on the animation event (which each of the directives above trigger depending on what's going on) two
-     * generated CSS classes will be applied to the element; in the example above we have `.ng-enter` and `.ng-enter-active`. For CSS transitions, the transition
+     * generated CSS classes will be applied to the element; in the example above lcfreiberg have `.ng-enter` and `.ng-enter-active`. For CSS transitions, the transition
      * code **must** be defined within the starting CSS class (in this case `.ng-enter`). The destination class is what the transition will animate towards.
      *
-     * If for example we wanted to create animations for `leave` and `move` (ngRepeat triggers move) then we can do so using the same CSS naming conventions:
+     * If for example lcfreiberg wanted to create animations for `leave` and `move` (ngRepeat triggers move) then lcfreiberg can do so using the same CSS naming conventions:
      *
      * ```css
      * /&#42; now the element will fade out before it is removed from the DOM &#42;/
@@ -3253,7 +3253,7 @@
      * naming convention. Class-based animations are basic enough that a standard transition or keyframe can be referenced on the class being added
      * and removed.
      *
-     * For example if we wanted to do a CSS animation for `ngHide` then we place an animation on the `.ng-hide` CSS class:
+     * For example if lcfreiberg wanted to do a CSS animation for `ngHide` then lcfreiberg place an animation on the `.ng-hide` CSS class:
      *
      * ```html
      * <div ng-show="bool" class="fade">
@@ -3270,9 +3270,9 @@
      * ```
      *
      * All that is going on here with ngShow/ngHide behind the scenes is the `.ng-hide` class is added/removed (when the hidden state is valid). Since
-     * ngShow and ngHide are animation aware then we can match up a transition and ngAnimate handles the rest.
+     * ngShow and ngHide are animation aware then lcfreiberg can match up a transition and ngAnimate handles the rest.
      *
-     * In addition the addition and removal of the CSS class, ngAnimate also provides two helper methods that we can use to further decorate the animation
+     * In addition the addition and removal of the CSS class, ngAnimate also provides two helper methods that lcfreiberg can use to further decorate the animation
      * with CSS styles.
      *
      * ```html
@@ -3386,8 +3386,8 @@
      * ## JavaScript-based Animations
      *
      * ngAnimate also allows for animations to be consumed by JavaScript code. The approach is similar to CSS-based animations (where there is a shared
-     * CSS class that is referenced in our HTML code) but in addition we need to register the JavaScript animation on the module. By making use of the
-     * `module.animation()` module function we can register the ainmation.
+     * CSS class that is referenced in our HTML code) but in addition lcfreiberg need to register the JavaScript animation on the module. By making use of the
+     * `module.animation()` module function lcfreiberg can register the ainmation.
      *
      * Let's see an example of a enter/leave animation using `ngRepeat`:
      *
@@ -3397,7 +3397,7 @@
      * </div>
      * ```
      *
-     * See the **slide** CSS class? Let's use that class to define an animation that we'll structure in our module code by using `module.animation`:
+     * See the **slide** CSS class? Let's use that class to define an animation that lcfreiberg'll structure in our module code by using `module.animation`:
      *
      * ```js
      * myModule.animation('.slide', [function() {
@@ -3422,10 +3422,10 @@
  * }]
      * ```
      *
-     * The nice thing about JS-based animations is that we can inject other services and make use of advanced animation libraries such as
+     * The nice thing about JS-based animations is that lcfreiberg can inject other services and make use of advanced animation libraries such as
      * greensock.js and velocity.js.
      *
-     * If our animation code class-based (meaning that something like `ngClass`, `ngHide` and `ngShow` triggers it) then we can still define
+     * If our animation code class-based (meaning that something like `ngClass`, `ngHide` and `ngShow` triggers it) then lcfreiberg can still define
      * our animations inside of the same registered animation, however, the function input arguments are a bit different:
      *
      * ```html
@@ -3504,10 +3504,10 @@
  * }]
      * ```
      *
-     * The nice thing here is that we can save bandwidth by sticking to our CSS-based animation code and we don't need to rely on a 3rd-party animation framework.
+     * The nice thing here is that lcfreiberg can save bandwidth by sticking to our CSS-based animation code and lcfreiberg don't need to rely on a 3rd-party animation framework.
      *
-     * The `$animateCss` service is very powerful since we can feed in all kinds of extra properties that will be evaluated and fed into a CSS transition or
-     * keyframe animation. For example if we wanted to animate the height of an element while adding and removing classes then we can do so by providing that
+     * The `$animateCss` service is very powerful since lcfreiberg can feed in all kinds of extra properties that will be evaluated and fed into a CSS transition or
+     * keyframe animation. For example if lcfreiberg wanted to animate the height of an element while adding and removing classes then lcfreiberg can do so by providing that
      * data into `$animateCss` directly:
      *
      * ```js
@@ -3528,7 +3528,7 @@
  * }]
      * ```
      *
-     * Now we can fill in the rest via our transition CSS code:
+     * Now lcfreiberg can fill in the rest via our transition CSS code:
      *
      * ```css
      * /&#42; the transition tells ngAnimate to make the animation happen &#42;/
@@ -3549,12 +3549,12 @@
      * structural areas of an application (like views) by pairing up elements using an attribute
      * called `ng-animate-ref`.
      *
-     * Let's say for example we have two views that are managed by `ng-view` and we want to show
+     * Let's say for example lcfreiberg have two views that are managed by `ng-view` and lcfreiberg want to show
      * that there is a relationship between two components situated in within these views. By using the
-     * `ng-animate-ref` attribute we can identify that the two components are paired together and we
+     * `ng-animate-ref` attribute lcfreiberg can identify that the two components are paired together and lcfreiberg
      * can then attach an animation, which is triggered when the view changes.
      *
-     * Say for example we have the following template code:
+     * Say for example lcfreiberg have the following template code:
      *
      * ```html
      * <!-- calendar.html -->
@@ -3616,13 +3616,13 @@
  * }
      * ```
      *
-     * Now we can jump back to the anchor animation. When the animation happens, there are two stages that occur:
+     * Now lcfreiberg can jump back to the anchor animation. When the animation happens, there are two stages that occur:
      * an `out` and an `in` stage. The `out` stage happens first and that is when the element is animated away
      * from its origin. Once that animation is over then the `in` stage occurs which animates the
      * element to its destination. The reason why there are two animations is to give enough time
      * for the enter animation on the new element to be ready.
      *
-     * The example above sets up a transition for both the in and out phases, but we can also target the out or
+     * The example above sets up a transition for both the in and out phases, but lcfreiberg can also target the out or
      * in phases directly via `ng-anchor-out` and `ng-anchor-in`.
      *
      * ```css
@@ -3773,9 +3773,9 @@
      *
      * ## Using $animate in your directive code
      *
-     * So far we've explored how to feed in animations into an Angular application, but how do we trigger animations within our own directives in our application?
-     * By injecting the `$animate` service into our directive code, we can trigger structural and class-based hooks which can then be consumed by animations. Let's
-     * imagine we have a greeting box that shows and hides itself when the data changes
+     * So far lcfreiberg've explored how to feed in animations into an Angular application, but how do lcfreiberg trigger animations within our own directives in our application?
+     * By injecting the `$animate` service into our directive code, lcfreiberg can trigger structural and class-based hooks which can then be consumed by animations. Let's
+     * imagine lcfreiberg have a greeting box that shows and hides itself when the data changes
      *
      * ```html
      * <greeting-box active="onOrOff">Hi there</greeting-box>
@@ -3791,11 +3791,11 @@
  * }]);
      * ```
      *
-     * Now the `on` CSS class is added and removed on the greeting box component. Now if we add a CSS class on top of the greeting box element
-     * in our HTML code then we can trigger a CSS or JS animation to happen.
+     * Now the `on` CSS class is added and removed on the greeting box component. Now if lcfreiberg add a CSS class on top of the greeting box element
+     * in our HTML code then lcfreiberg can trigger a CSS or JS animation to happen.
      *
      * ```css
-     * /&#42; normally we would create a CSS class to reference on the element &#42;/
+     * /&#42; normally lcfreiberg would create a CSS class to reference on the element &#42;/
      * greeting-box.on { transition:0.5s linear all; background:green; color:white; }
      * ```
      *
@@ -3830,8 +3830,8 @@
      *
      * ## Callbacks and Promises
      *
-     * When `$animate` is called it returns a promise that can be used to capture when the animation has ended. Therefore if we were to trigger
-     * an animation (within our directive code) then we can continue performing directive and scope related activities after the animation has
+     * When `$animate` is called it returns a promise that can be used to capture when the animation has ended. Therefore if lcfreiberg were to trigger
+     * an animation (within our directive code) then lcfreiberg can continue performing directive and scope related activities after the animation has
      * ended by chaining onto the returned promise that animation method returns.
      *
      * ```js
@@ -3844,7 +3844,7 @@
      * (Note that earlier versions of Angular prior to v1.4 required the promise code to be wrapped using `$scope.$apply(...)`. This is not the case
      * anymore.)
      *
-     * In addition to the animation promise, we can also make use of animation-related callbacks within our directives and controller code by registering
+     * In addition to the animation promise, lcfreiberg can also make use of animation-related callbacks within our directives and controller code by registering
      * an event listener using the `$animate` service. Let's say for example that an animation was triggered on our view
      * routing controller to hook into that:
      *

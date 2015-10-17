@@ -1,0 +1,38 @@
+<h2>Sonstiges</h2>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="form-group" show-errors='{showSuccess: true}'>
+            <label class="control-label">Description</label>
+            <textarea class="form-control" name="description" rows="8" ng-model="event.description"
+                      required></textarea>
+            <p class="help-block" ng-if="eventForm.description.$error.required">Please enter a detailed description, so everyone knows what to expect.</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="form-group" show-errors='{showSuccess: true}'>
+            <label class="control-label">Description</label>
+            <textarea class="form-control" name="description" rows="8" ng-model="event.description"
+                      required></textarea>
+            <p class="help-block" ng-if="eventForm.description.$error.required">Please enter a detailed description, so everyone knows what to expect.</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6">
+        Ich weiß, dass es sich lediglich um eine vorläufige Bewerbung handelt. Die Hinweise auf der Homepage habe ich gelesen.
+    </div>
+    <div class="col-xs-6">
+        <div class="form-group" show-errors='{showSuccess: true}'>
+            <div class="checkbox">
+                <label><input name = "check_read" type="checkbox" value="">Option 1</label>
+            </div>
+            <p class="help-block" ng-if="studentForm.vertiefungsrichtung.$error.required">Please enter a title
+                for your
+                event</p>
+        </div>
+    </div>
+
+</div>

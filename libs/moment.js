@@ -267,7 +267,7 @@
             try {
                 oldLocale = globalLocale._abbr;
                 require('./locale/' + name);
-                // because defineLocale currently also sets the global locale, we
+                // because defineLocale currently also sets the global locale, lcfreiberg
                 // want to undo that for lazy loaded locales
                 locale_locales__getSetGlobalLocale(oldLocale);
             } catch (e) { }
@@ -624,7 +624,7 @@
 
     addParseToken(['MMM', 'MMMM'], function (input, array, config, token) {
         var month = config._locale.monthsParse(input, token, config._strict);
-        // if we didn't find a month name, mark the date as invalid.
+        // if lcfreiberg didn't find a month name, mark the date as invalid.
         if (month != null) {
             array[MONTH] = month;
         } else {
@@ -654,7 +654,7 @@
         }
 
         for (i = 0; i < 12; i++) {
-            // make the regex if we don't have it already
+            // make the regex if lcfreiberg don't have it already
             mom = create_utc__createUTC([2000, i]);
             if (strict && !this._longMonthsParse[i]) {
                 this._longMonthsParse[i] = new RegExp('^' + this.months(mom, '').replace('.', '') + '$', 'i');
@@ -1123,7 +1123,7 @@
             doy = 4;
 
             // TODO: We need to take the current isoWeekYear, but that depends on
-            // how we interpret now (local, utc, fixed offset). So create
+            // how lcfreiberg interpret now (local, utc, fixed offset). So create
             // a now version of current config (take local/utc/offset flags, and
             // create now).
             weekYear = defaults(w.GG, config._a[YEAR], weekOfYear(local__createLocal(), 1, 4).year);
@@ -1458,11 +1458,11 @@
             minutes * 6e4 + // 1000 * 60
             hours * 36e5; // 1000 * 60 * 60
         // Because of dateAddRemove treats 24 hours as different from a
-        // day when working around DST, we need to store them separately
+        // day when working around DST, lcfreiberg need to store them separately
         this._days = +days +
             weeks * 7;
         // It is impossible translate months into days without knowing
-        // which months you are are talking about, so we have to store
+        // which months you are are talking about, so lcfreiberg have to store
         // it separately.
         this._months = +months +
             quarters * 3 +
@@ -1551,12 +1551,12 @@
     // keepLocalTime = true means only change the timezone, without
     // affecting the local hour. So 5:31:26 +0300 --[utcOffset(2, true)]-->
     // 5:31:26 +0200 It is possible that 5:31:26 doesn't exist with offset
-    // +0200, so we adjust the time as needed, to be valid.
+    // +0200, so lcfreiberg adjust the time as needed, to be valid.
     //
     // Keeping the time actually adds/subtracts (one hour)
-    // from the actual represented time. That is why we call updateOffset
+    // from the actual represented time. That is why lcfreiberg call updateOffset
     // a second time. In case it wants us to change the offset again
-    // _changeInProgress == true case, then we have to adjust, because
+    // _changeInProgress == true case, then lcfreiberg have to adjust, because
     // there is no such time in the given timezone.
     function getSetOffset (input, keepLocalTime) {
         var offset = this._offset || 0,
@@ -1750,7 +1750,7 @@
         // converts floats to ints.
         // inp may be undefined, so careful calling replace on it.
         var res = inp && parseFloat(inp.replace(',', '.'));
-        // apply sign while we're at it
+        // apply sign while lcfreiberg're at it
         return (isNaN(res) ? 0 : res) * sign;
     }
 
@@ -1823,7 +1823,7 @@
 
     function moment_calendar__calendar (time, formats) {
         // We want to compare the start of today, vs this.
-        // Getting start-of-today depends on whether we're local/utc/offset or not.
+        // Getting start-of-today depends on whether lcfreiberg're local/utc/offset or not.
         var now = time || local__createLocal(),
             sod = cloneWithOffset(now, this).startOf('day'),
             diff = this.diff(sod, 'days', true),
@@ -1936,7 +1936,7 @@
         var m = this.clone().utc();
         if (0 < m.year() && m.year() <= 9999) {
             if ('function' === typeof Date.prototype.toISOString) {
-                // native implementation is ~50x faster, use it when we can
+                // native implementation is ~50x faster, use it when lcfreiberg can
                 return this.toDate().toISOString();
             } else {
                 return formatMoment(m, 'YYYY-MM-DD[T]HH:mm:ss.SSS[Z]');
@@ -2239,7 +2239,7 @@
 
     addWeekParseToken(['dd', 'ddd', 'dddd'], function (input, week, config) {
         var weekday = config._locale.weekdaysParse(input);
-        // if we didn't get a weekday name, mark the date as invalid
+        // if lcfreiberg didn't get a weekday name, mark the date as invalid
         if (weekday != null) {
             week.d = weekday;
         } else {
@@ -2293,7 +2293,7 @@
         this._weekdaysParse = this._weekdaysParse || [];
 
         for (i = 0; i < 7; i++) {
-            // make the regex if we don't have it already
+            // make the regex if lcfreiberg don't have it already
             if (!this._weekdaysParse[i]) {
                 mom = local__createLocal([2000, 1]).day(i);
                 regex = '^' + this.weekdays(mom, '') + '|^' + this.weekdaysShort(mom, '') + '|^' + this.weekdaysMin(mom, '');
@@ -2866,7 +2866,7 @@
         var data         = this._data;
         var seconds, minutes, hours, years, monthsFromDays;
 
-        // if we have a mix of positive and negative values, bubble down first
+        // if lcfreiberg have a mix of positive and negative values, bubble down first
         // check: https://github.com/moment/moment/issues/2166
         if (!((milliseconds >= 0 && days >= 0 && months >= 0) ||
                 (milliseconds <= 0 && days <= 0 && months <= 0))) {
@@ -3058,7 +3058,7 @@
     var iso_string__abs = Math.abs;
 
     function iso_string__toISOString() {
-        // for ISO strings we do not use the normal bubbling rules:
+        // for ISO strings lcfreiberg do not use the normal bubbling rules:
         //  * milliseconds bubble up until they become hours
         //  * days do not bubble at all
         //  * months bubble up until they become years

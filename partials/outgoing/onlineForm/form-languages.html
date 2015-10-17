@@ -2,76 +2,45 @@
 
 <div class="row">
     <div class="col-xs-6">
-        <div class="form-group" show-errors='{showSuccess: true}'>
-            <label class="control-label">Studiengang</label>
-            <input ng-model="student.studiengang" type="text" class="form-control" name="studiengang"
-                   required/>
-
-            <p class="help-block" ng-if="studentForm.studiengang.$error.required">Please enter a title for your
-                event</p>
-        </div>
-    </div>
-    <div class="col-xs-6">
-        <div class="form-group" show-errors='{showSuccess: true}'>
-            <label class="control-label">Vertiefungsrichtung</label>
-            <input ng-model="student.vertiefungsrichtung" type="text" class="form-control"
-                   name="vertiefungsrichtung"
-                   required/>
-
-            <p class="help-block" ng-if="studentForm.vertiefungsrichtung.$error.required">Please enter a title
-                for your
-                event</p>
-        </div>
-    </div>
-
-</div>
-<div class="row">
-    <div class="col-xs-6">
         <h4>Englisch</h4>
 
         <div class="form-group" show-errors='{showSuccess: true}'>
-            <label class="radion-inline" for="exellentRadio">Exellent:</label>
-            <input name="exellentRadio" id="exellentRadio" type="radio" ng-model="student.languageEnglish"
+            <label class="radio-inline" for="exellentRadioEnglish">Exellent:</label>
+            <input name="exellentRadioEnglish" id="exellentRadioEnglish" type="radio" ng-model="student.englisch"
                    value="exellent"/>
 
-            <label class="radion-inline" for="goodRadio">Good:</label>
-            <input name="goodRadio" id="goodRadio" type="radio" ng-model="student.languageEnglish"
+            <label class="radio-inline" for="goodRadioEnglish">Good:</label>
+            <input name="goodRadioEnglish" id="goodRadioEnglish" type="radio" ng-model="student.englisch"
                    value="good"/>
 
-            <label class="radion-inline" for="fairRadio">Fair:</label>
-            <input name="fairRadio" id="fairRadio" type="radio" ng-model="student.languageEnglish"
+            <label class="radio-inline" for="fairRadioEnglish">Fair:</label>
+            <input name="fairRadioEnglish" id="fairRadioEnglish" type="radio" ng-model="student.englisch"
                    value="fair"/>
 
-            <label class="radion-inline" for="noneRadio">None:</label>
-            <input name="noneRadio" id="noneRadio" type="radio" ng-model="student.languageEnglish"
+            <label class="radio-inline" for="noneRadioEnglish">None:</label>
+            <input name="noneRadioEnglish" id="noneRadioEnglish" type="radio" ng-model="student.englisch"
                    value="none"/>
-
-            <p class="help-block" ng-if="studentForm.studiengang.$error.required">Please enter a title for your
-                event</p>
         </div>
     </div>
     <div class="col-xs-6">
         <h4>Spanisch</h4>
 
         <div class="form-group" show-errors='{showSuccess: true}'>
-            <label class="radion-inline" for="exellentRadio">Exellent:</label>
-            <input name="exellentRadio" id="exellentRadio" type="radio" ng-model="student.languageSpanish"
+            <label class="radio-inline" for="exellentRadioSpanish">Exellent:</label>
+            <input name="exellentRadioSpanish" id="exellentRadioSpanish" type="radio" ng-model="student.spanisch"
                    value="exellent"/>
 
-            <label class="radion-inline" for="goodRadio">Good:</label>
-            <input name="goodRadio" id="goodRadio" type="radio" ng-model="student.languageSpanish"
+            <label class="radio-inline" for="goodRadioSpanish">Good:</label>
+            <input name="goodRadioSpanish" id="goodRadioSpanish" type="radio" ng-model="student.spanisch"
                    value="good"/>
 
-            <label class="radion-inline" for="fairRadio">Fair:</label>
-            <input name="fairRadio" id="fairRadio" type="radio" ng-model="student.languageSpanish"
+            <label class="radio-inline" for="fairRadioSpanish">Fair:</label>
+            <input name="fairRadioSpanish" id="fairRadioSpanish" type="radio" ng-model="student.spanisch"
                    value="fair"/>
 
-            <label class="radion-inline" for="noneRadio">None:</label>
-            <input name="noneRadio" id="noneRadio" type="radio" ng-model="student.languageSpanish"
+            <label class="radio-inline" for="noneRadioSpanish">None:</label>
+            <input name="noneRadioSpanish" id="noneRadioSpanish" type="radio" ng-model="student.spanisch"
                    value="none"/>
-
-            <p class="help-block" ng-if="studentForm.studiengang.$error.required">Please enter a title for your
-                event</p>
         </div>
     </div>
 </div>
@@ -80,21 +49,19 @@
         <h4>Französisch</h4>
 
         <div class="form-group" show-errors='{showSuccess: true}'>
-            <label class="radion-inline" for="exellentRadio">Exellent:</label>
-            <input name="exellentRadio" id="exellentRadio" type="radio" ng-model="student.languageFrench"
+            <label class="radio-inline" for="exellentRadioFrench">Exellent:</label>
+            <input name="exellentRadioFrench" id="exellentRadioFrench" type="radio" ng-model="student.franzoesisch"
                    value="exellent"/>
 
-            <label class="radion-inline" for="goodRadio">Good:</label>
-            <input name="goodRadio" id="goodRadio" type="radio" ng-model="student.languageFrench" value="good"/>
+            <label class="radio-inline" for="goodRadioFrench">Good:</label>
+            <input name="goodRadioFrench" id="goodRadioFrench" type="radio" ng-model="student.franzoesisch" value="good"/>
 
-            <label class="radion-inline" for="fairRadio">Fair:</label>
-            <input name="fairRadio" id="fairRadio" type="radio" ng-model="student.languageFrench" value="fair"/>
+            <label class="radio-inline" for="fairRadioFrench">Fair:</label>
+            <input name="fairRadioFrench" id="fairRadioFrench" type="radio" ng-model="student.franzoesisch" value="fair"/>
 
-            <label class="radion-inline" for="noneRadio">None:</label>
-            <input name="noneRadio" id="noneRadio" type="radio" ng-model="student.languageFrench" value="none"/>
+            <label class="radio-inline" for="noneRadioFrench">None:</label>
+            <input name="noneRadioFrench" id="noneRadioFrench" type="radio" ng-model="student.franzoesisch" value="none"/>
 
-            <p class="help-block" ng-if="studentForm.studiengang.$error.required">Please enter a title for your
-                event</p>
         </div>
     </div>
     <div class="col-xs-6">
@@ -103,48 +70,37 @@
 <div class="row">
     <div class="col-xs-6">
         <div class="form-group" show-errors='{showSuccess: true}'>
-            <label class="control-label">Studiengang</label>
-            <input ng-model="student.studiengang" type="text" class="form-control" name="studiengang"
-                   required/>
+            <label class="control-label">andere Sprachen</label>
+            <input ng-model="student.andereSprachen" type="text" class="form-control" name="andereSprachen"
+                   />
 
-            <p class="help-block" ng-if="studentForm.studiengang.$error.required">Please enter a title for your
-                event</p>
         </div>
     </div>
     <div class="col-xs-6">
         <div class="form-group" show-errors='{showSuccess: true}'>
-            <label class="control-label">Vertiefungsrichtung</label>
-            <input ng-model="student.vertiefungsrichtung" type="text" class="form-control"
-                   name="vertiefungsrichtung"
-                   required/>
-
-            <p class="help-block" ng-if="studentForm.vertiefungsrichtung.$error.required">Please enter a title
-                for your
-                event</p>
+            <label class="control-label">Programmiersprachen</label>
+            <input ng-model="student.programmiersprachen" type="text" class="form-control"
+                   name="programmiersprachen"
+                   />
         </div>
     </div>
 </div>
 <div class="row">
     <div class="col-xs-6">
         <div class="form-group" show-errors='{showSuccess: true}'>
-            <label class="control-label">Studiengang</label>
-            <input ng-model="student.studiengang" type="text" class="form-control" name="studiengang"
-                   required/>
-
-            <p class="help-block" ng-if="studentForm.studiengang.$error.required">Please enter a title for your
-                event</p>
+            <label class="control-label">CAD-Kenntnisse</label>
+            <input ng-model="student.cad" type="text" class="form-control" name="cad"
+                   />
         </div>
     </div>
     <div class="col-xs-6">
         <div class="form-group" show-errors='{showSuccess: true}'>
-            <label class="control-label">Vertiefungsrichtung</label>
-            <input ng-model="student.vertiefungsrichtung" type="text" class="form-control"
-                   name="vertiefungsrichtung"
-                   required/>
-
-            <p class="help-block" ng-if="studentForm.vertiefungsrichtung.$error.required">Please enter a title
-                for your
-                event</p>
+            <label class="control-label">Sonstiges</label>
+            <input ng-model="student.sonstiges" type="text" class="form-control"
+                   name="sonstiges"
+                   />
         </div>
     </div>
 </div>
+
+<form-button></form-button>

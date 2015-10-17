@@ -2,51 +2,29 @@
 
 <div class="row">
     <div class="col-xs-6">
-        <h4>Englisch</h4>
+        <h4>Ich habe bereits praktische Erfahrung</h4>
 
         <div class="form-group" show-errors='{showSuccess: true}'>
-            <label class="radion-inline" for="exellentRadio">Exellent:</label>
-            <input name="exellentRadio" id="exellentRadio" type="radio" ng-model="student.languageEnglish"
-                   value="exellent"/>
+            <label class="radio-inline" for="yesRadio">Ja</label>
+            <input name="yesRadio" id="yesRadio" type="radio" ng-model="student.praktischeErfahrung"
+                   value="ja"/>
 
-            <label class="radion-inline" for="goodRadio">Good:</label>
-            <input name="goodRadio" id="goodRadio" type="radio" ng-model="student.languageEnglish"
-                   value="good"/>
-
-            <label class="radion-inline" for="fairRadio">Fair:</label>
-            <input name="fairRadio" id="fairRadio" type="radio" ng-model="student.languageEnglish"
-                   value="fair"/>
-
-            <label class="radion-inline" for="noneRadio">None:</label>
-            <input name="noneRadio" id="noneRadio" type="radio" ng-model="student.languageEnglish"
-                   value="none"/>
-
-            <p class="help-block" ng-if="studentForm.studiengang.$error.required">Please enter a title for your
-                event</p>
+            <label class="radio-inline" for="noRadio">Nein</label>
+            <input name="noRadio" id="noRadio" type="radio" ng-model="student.praktischeErfahrung"
+                   value="nein"/>
         </div>
     </div>
     <div class="col-xs-6">
-        <h4>Spanisch</h4>
+        <h4>Ich habe bereits ein Iaeste Prkatikum absolviert</h4>
 
         <div class="form-group" show-errors='{showSuccess: true}'>
-            <label class="radion-inline" for="exellentRadio">Exellent:</label>
-            <input name="exellentRadio" id="exellentRadio" type="radio" ng-model="student.languageSpanish"
-                   value="exellent"/>
+            <label class="radio-inline" for="yesRadio">Ja</label>
+            <input name="yesRadio" id="yesRadio" type="radio" ng-model="student.praktikumAbsolviert"
+                   value="ja"/>
 
-            <label class="radion-inline" for="goodRadio">Good:</label>
-            <input name="goodRadio" id="goodRadio" type="radio" ng-model="student.languageSpanish"
-                   value="good"/>
-
-            <label class="radion-inline" for="fairRadio">Fair:</label>
-            <input name="fairRadio" id="fairRadio" type="radio" ng-model="student.languageSpanish"
-                   value="fair"/>
-
-            <label class="radion-inline" for="noneRadio">None:</label>
-            <input name="noneRadio" id="noneRadio" type="radio" ng-model="student.languageSpanish"
-                   value="none"/>
-
-            <p class="help-block" ng-if="studentForm.studiengang.$error.required">Please enter a title for your
-                event</p>
+            <label class="radio-inline" for="noRadio">Nein</label>
+            <input name="noRadio" id="noRadio" type="radio" ng-model="student.praktikumAbsolviert"
+                   value="nein"/>
         </div>
     </div>
 </div>
@@ -54,22 +32,21 @@
 <div class="row">
     <div class="col-xs-6">
         <div class="form-group" show-errors='{showSuccess: true}'>
-            <label class="control-label">Studiengang</label>
-            <input ng-model="student.studiengang" type="text" class="form-control" name="studiengang"
+            <label class="control-label">gewünschte Dauer</label>
+            <input placeholder="4-52 (Wochen)" ng-model="student.gewuenschteDauer" type="text" class="form-control" name="gewuenschteDauer"
                    required/>
 
-            <p class="help-block" ng-if="studentForm.studiengang.$error.required">Please enter a title for your
-                event</p>
+            <p class="help-block" ng-if="studentForm.gewuenschteDauer.$error.required">Bitte gib in Wochen an, wie lange dein Praktikum dauern soll.</p>
         </div>
     </div>
     <div class="col-xs-6">
         <div class="form-group" show-errors='{showSuccess: true}'>
-            <label class="control-label">Vertiefungsrichtung</label>
-            <input ng-model="student.vertiefungsrichtung" type="text" class="form-control"
-                   name="vertiefungsrichtung"
+            <label class="control-label">gewünschter Zeitraum</label>
+            <input placeholder="Janur-Dezember" ng-model="student.gewuenschterZeitraum" type="text" class="form-control"
+                   name="gewuenschterZeitraum"
                    required/>
 
-            <p class="help-block" ng-if="studentForm.vertiefungsrichtung.$error.required">Please enter a title
+            <p class="help-block" ng-if="studentForm.gewuenschterZeitraum.$error.required">Please enter a title
                 for your
                 event</p>
         </div>
@@ -79,14 +56,13 @@
 <div class="row">
     <div class="col-xs-6">
         <div class="form-group" show-errors='{showSuccess: true}'>
-            <label class="control-label">Studiengang</label>
-            <input ng-model="student.studiengang" type="text" class="form-control" name="studiengang"
-                   required/>
-
-            <p class="help-block" ng-if="studentForm.studiengang.$error.required">Please enter a title for your
-                event</p>
+            <label class="control-label">Interessen bzgl. Praktikum</label>
+            <input ng-model="student.interessenPraktikum" type="text" class="form-control" name="interessenPraktikum"
+                   />
         </div>
     </div>
     <div class="col-xs-6">
     </div>
 </div>
+
+<form-button></form-button>

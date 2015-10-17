@@ -7,8 +7,7 @@
             <input ng-model="student.studiengang" type="text" class="form-control" name="studiengang"
                    required/>
 
-            <p class="help-block" ng-if="studentForm.studiengang.$error.required">Please enter a title for your
-                event</p>
+            <p class="help-block" ng-if="studentForm.studiengang.$error.required">Bitte gib deinen Studiengang an.</p>
         </div>
     </div>
     <div class="col-xs-6">
@@ -16,11 +15,7 @@
             <label class="control-label">Vertiefungsrichtung</label>
             <input ng-model="student.vertiefungsrichtung" type="text" class="form-control"
                    name="vertiefungsrichtung"
-                   required/>
-
-            <p class="help-block" ng-if="studentForm.vertiefungsrichtung.$error.required">Please enter a title
-                for your
-                event</p>
+                   />
         </div>
     </div>
 
@@ -28,25 +23,14 @@
 <div class="row">
     <div class="col-xs-6">
         <div class="form-group" show-errors='{showSuccess: true}'>
-            <label class="control-label">Studiengang</label>
-            <input ng-model="student.studiengang" type="text" class="form-control" name="studiengang"
+            <label class="control-label">Aktuelles Semester</label>
+            <input ng-model="student.semester" type="text" class="form-control" name="semester"
                    required/>
 
-            <p class="help-block" ng-if="studentForm.studiengang.$error.required">Please enter a title for your
-                event</p>
+            <p class="help-block" ng-if="studentForm.semester.$error.required">Bitte gib an, in welchem Semester du bist.<</p>
         </div>
     </div>
     <div class="col-xs-6">
-        <div class="form-group" show-errors='{showSuccess: true}'>
-            <label class="control-label">Vertiefungsrichtung</label>
-            <input ng-model="student.vertiefungsrichtung" type="text" class="form-control"
-                   name="vertiefungsrichtung"
-                   required/>
-
-            <p class="help-block" ng-if="studentForm.vertiefungsrichtung.$error.required">Please enter a title
-                for your
-                event</p>
-        </div>
     </div>
 
 </div>

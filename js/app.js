@@ -1,8 +1,18 @@
 (function() {
-    var app = angular.module('iaesteWeb', []);
+    var app = angular.module('iaesteWeb', ['reCAPTCHA']);
 
+    app.config(function (reCAPTCHAProvider) {
+        // required: please use your own key :)
+        reCAPTCHAProvider.setPublicKey('6LfyK-0SAAAAAAl6V9jBGQgPxemtrpIZ-SPDPd-n');
 
-    app.controller('NewStudentController', function ($scope,$http) {
+        // optional: gets passed into the Recaptcha.create call
+        reCAPTCHAProvider.setOptions({
+            theme: 'clean'
+        });
+    });
+    app.controller('NewStudentController', function ($scope,$http,reCAPTCHA) {
+
+        reCAPTCHA.setPublicKey('6LfyK-0SAAAAAAl6V9jBGQgPxemtrpIZ-SPDPd-n');
 
         $scope.tab = 1;
         $scope.isSet = function(checkTab) {
@@ -15,12 +25,36 @@
             "hochschule":"Tu Freiberg",
             "vorname":"hans",
             "nachname":"Peter",
+            "geburtstag":"12.05.1989",
             "email":"hans.perter@gmx.de",
-            "mobil":0151502323445
+            "mobil":0151502323445,
+            "studiengang":"Gtb",
+            "vertiefungsrichtung":"Bohren",
+            "semester":"12",
+            "englisch":"gut",
+            "spanisch":"gut",
+            "franzoesisch":"jo",
+            "andereSprachen":"Russisch",
+            "programmiersprachen":"Java",
+            "cad":"nein",
+            "sonstiges":"lesen",
+            "praktischeErfahrung":"einiges",
+            "praktikumAbsolviert":"ja",
+            "gewuenschteDauer":"12",
+            "gewuenschterZeitraum":"Januar bis März",
+            "interessenPraktikum":"einiges",
+            "landEgal":"ja",
+            "landEuropa":"jaja",
+            "landAmerika":"jajaja",
+            "landAsien":"jajajaj",
+            "landAfrika":"jajajajaaj",
+            "landWunsch":"Deuschland",
+            "landNein":"Gana",
+            "motivation":"Ich habe einefach mega Bock",
+            "anmerkung":"Iaeste ist geil",
         };
 
         $scope.formatDate = function (date) {
-            console.log(date);
             date = new Date(date);
             date = date.format("yyyy-mm-dd");
             return date;
@@ -36,6 +70,22 @@
             $event.stopPropagation();
             event[field] = !event[field];
         };
+        $scope.lastForm = function(){
+            if($scope.tab !=1) {
+                $scope.tab--;
+            }
+        };
+
+        $scope.nextForm = function(){
+            $scope.$broadcast('show-errors-check-validity');
+            $scope.inputCaptcha = true;
+            console.log($scope.student.captcha.response);
+            if ($scope.studentForm.$valid) {
+                $scope.tab++;
+                $scope.formatDates();
+                console.log($scope.student);
+            }
+        }
 
         $scope.save = function () {
             $scope.$broadcast('show-errors-check-validity');
@@ -53,8 +103,7 @@
                     if(response.status != "ok"){
                         console.log(response.data.status)
                     }else {
-                        console.log("läuft");
-                        data.student.id = response.data.id;
+                        $scope.student.id = response.data.id;
                     }
                 }, function errorCallback(response) {
                     console.log("error");
@@ -62,7 +111,7 @@
                 });
                 $scope.reset();
             }
-            console.log(data);
+            console.log($scope.student);
         };
 
         $scope.reset = function () {

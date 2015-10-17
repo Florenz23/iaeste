@@ -6,6 +6,25 @@ class ajax_server {
 
     function __construct() {
         $this->db = new MysqliDb( "localhost", "root", "", "iaeste_neu" );
+        $server_address = $_SERVER['REMOTE_ADDR'];
+        if ( isset( $server_address ) ) {
+            if ( $server_address == "::1" ) {
+                $this->db = new MysqliDb( "localhost", "root", "", "iaeste_neu" );
+                return;
+            }
+            if ( $server_address == "127.0.0.1" ) {
+                $this->db = new MysqliDb( "localhost", "root", "", "iaeste_neu" );
+                return;
+            }
+            // $this->host = "db.planet-school.de";
+            // $this->user = "m8282-2";
+            // $this->pass = "aexohjee";
+            // $this->db = "m8282-2";
+
+                $this->db = new MysqliDb( "iaeste-freiberg.de.mysql", "iaeste_freiberg", "23Safreiiy", "iaeste_freiberg" );
+            return;
+        }
+                $this->db = new MysqliDb( "localhost", "root", "", "iaeste_neu" );
     }
 
     public function saveApplicationPersoenlich( $data ) {

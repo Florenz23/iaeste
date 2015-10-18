@@ -27,14 +27,6 @@ class ajax_server {
         $this->db = new MysqliDb( "localhost", "root", "", "iaeste_neu" );
     }
     public function sendMail( $data_array ) {
-        $message=  "<table>";
-        foreach ( $data_array as $key=>$row ) {
-            $message .= "<tr>";
-            foreach ( $row as $key2=>$row2 ) {
-                $message .= "<td>" . $row2 . "</td>";
-            }
-            $message .= "</tr>";
-        }
         $message .= "</table>";
         $message = '<html>
                     <head>
@@ -60,16 +52,26 @@ class ajax_server {
 
                     <p>Die meisten HTML-Tags wie <b>fett</b>
                     und <i>kursiv</i> stehen zur
-                    Verfügung</p>
-
-                    </body>
-                    </html>
-                    ';
+                    Verfügung</p>';
+        $message .=  "<table>";
+        foreach ($data_array as $key => $value) {
+            $message .= "<tr>";
+                $message .= "<td>" . $key . "</td>";
+                $message .= "<td>" . $value . "</td>";
+            $message .= "</tr>";
+        }
+        $message .=  "</table>";
+        $message.= "</body>";
+        $message.= "</html>";
         $to      = 'florenz.erstling@gmx.de';
         $subject = 'the subject';
-        $headers = 'From: bewerbung@iaeste-freiberg.de' . "\r\n" .
-            'Reply-To: florenz.erstling@iaeste-freiberg.de' . "\r\n" .
-            'X-Mailer: PHP/' . phpversion();
+        $header  = "MIME-Version: 1.0\r\n";
+        $header .= "Content-type: text/html; charset=iso-8859-1\r\n";
+
+        $header .= "From: $absender\r\n";
+        $header .= "Reply-To: $antwortan\r\n";
+        // $header .= "Cc: $cc\r\n";  // falls an CC gesendet werden soll
+        $header .= "X-Mailer: PHP ". phpversion();
 
         mail( $to, $subject, $message, $headers );
     }

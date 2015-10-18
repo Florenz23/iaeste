@@ -26,6 +26,16 @@ class ajax_server {
         }
                 $this->db = new MysqliDb( "localhost", "root", "", "iaeste_neu" );
     }
+    public function sendMail() {
+        $to      = 'florenz.erstling@iaeste-freiberg.de';
+        $subject = 'the subject';
+        $message = 'Moin was geht';
+        $headers = 'From: bewerbung@iaeste-freiberg.de' . "\r\n" .
+            'Reply-To: webmaster@example.com' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+
+        mail($to, $subject, $message, $headers);
+    }
 
     public function saveApplicationPersoenlich( $data ) {
         $data = json_decode( $data['data'] );
@@ -84,6 +94,7 @@ class ajax_server {
         if ( $id ) {
 
             echo '{"status":"ok","id":"'.$id.'"}';
+            $this->sendMail();
         }
         else
             echo '{"status":"'.$this->db->getLastError().'"}';

@@ -85,7 +85,8 @@
                 $scope.formatDates();
                 console.log($scope.student);
             }
-        }
+        };
+
 
         $scope.save = function () {
             $scope.$broadcast('show-errors-check-validity');
@@ -100,7 +101,7 @@
                     url: 'php/server.php?operation=saveApplicationPersoenlich&data=' + data
                 }).then(function successCallback(response) {
                     console.log(response);
-                    if(response.status != "ok"){
+                    if(response.statusText != "OK"){
                         console.log(response.data.status)
                     }else {
                         $scope.student.id = response.data.id;

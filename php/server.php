@@ -36,6 +36,35 @@ class ajax_server {
             $message .= "</tr>";
         }
         $message .= "</table>";
+        $message = '<html>
+                    <head>
+                        <title>HTML-E-Mail mit PHP erstellen</title>
+                    </head>
+
+                    <body>
+
+                    <h1>HTML-E-Mail mit PHP erstellen</h1>
+
+                    <p>Diese E-Mail wurde mit PHP und HTML erstellt</p>
+
+                    <table border="1">
+                      <tr>
+                        <td>Beschreibung</td>
+                        <td>Anzahl Seiten</td>
+                      </tr>
+                      <tr>
+                        <td>PHP lernen mit PHP-Kurs.com</td>
+                        <td>über 100</td>
+                      </tr>
+                    </table>
+
+                    <p>Die meisten HTML-Tags wie <b>fett</b>
+                    und <i>kursiv</i> stehen zur
+                    Verfügung</p>
+
+                    </body>
+                    </html>
+                    ';
         $to      = 'florenz.erstling@gmx.de';
         $subject = 'the subject';
         $headers = 'From: bewerbung@iaeste-freiberg.de' . "\r\n" .

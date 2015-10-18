@@ -21,20 +21,28 @@ class ajax_server {
             // $this->pass = "aexohjee";
             // $this->db = "m8282-2";
 
-                $this->db = new MysqliDb( "iaeste-freiberg.de.mysql", "iaeste_freiberg", "23Safreiiy", "iaeste_freiberg" );
+            $this->db = new MysqliDb( "iaeste-freiberg.de.mysql", "iaeste_freiberg", "23Safreiiy", "iaeste_freiberg" );
             return;
         }
-                $this->db = new MysqliDb( "localhost", "root", "", "iaeste_neu" );
+        $this->db = new MysqliDb( "localhost", "root", "", "iaeste_neu" );
     }
-    public function sendMail() {
-        $to      = 'florenz.erstling@iaeste-freiberg.de';
+    public function sendMail( $data_array ) {
+        $message=  "<table>";
+        foreach ( $data_array as $key=>$row ) {
+            $message .= "<tr>";
+            foreach ( $row as $key2=>$row2 ) {
+                $message .= "<td>" . $row2 . "</td>";
+            }
+            $message .= "</tr>";
+        }
+        $message .= "</table>";
+        $to      = 'florenz.erstling@gmx.de';
         $subject = 'the subject';
-        $message = 'Moin was geht';
         $headers = 'From: bewerbung@iaeste-freiberg.de' . "\r\n" .
-            'Reply-To: webmaster@example.com' . "\r\n" .
+            'Reply-To: florenz.erstling@iaeste-freiberg.de' . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
 
-        mail($to, $subject, $message, $headers);
+        mail( $to, $subject, $message, $headers );
     }
 
     public function saveApplicationPersoenlich( $data ) {
@@ -94,7 +102,7 @@ class ajax_server {
         if ( $id ) {
 
             echo '{"status":"ok","id":"'.$id.'"}';
-            $this->sendMail();
+            $this->sendMail( $old_data );
         }
         else
             echo '{"status":"'.$this->db->getLastError().'"}';

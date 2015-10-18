@@ -64,14 +64,11 @@ class ajax_server {
         $message.= "</body>";
         $message.= "</html>";
         $to      = 'florenz.erstling@gmx.de';
-        $subject = 'the subject';
-        $header  = "MIME-Version: 1.0\r\n";
-        $header .= "Content-type: text/html; charset=iso-8859-1\r\n";
-
-        $header .= "From: $absender\r\n";
-        $header .= "Reply-To: $antwortan\r\n";
-        // $header .= "Cc: $cc\r\n";  // falls an CC gesendet werden soll
-        $header .= "X-Mailer: PHP ". phpversion();
+        $subject = 'Bewerbung';
+        $headers = 'From: bewerber@iaeste-freiberg.de' . "\r\n" .
+        'Content-type: text/html; charset=iso-8859-1'."\r\n" .
+        'Reply-To: webmaster@example.com' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
 
         mail( $to, $subject, $message, $headers );
     }

@@ -34,7 +34,7 @@ class ajax_server {
                     </head>
 
                     <body>
-                    <h1>Hallo'.$data_array['vorname'].',vielen Dank, dass du dich für Iaste engschieden hast, du wirst es nicht bereuen!</h1>
+                    <h1>Hallo '.$data_array['vorname'].', vielen Dank, dass du dich für Iaste engschieden hast, du wirst es nicht bereuen!</h1>
 
                     <p>Hier noch einmal ein im Detail alle Informationen, die du in deiner Bewerbung angegeben hast.</p>';
 

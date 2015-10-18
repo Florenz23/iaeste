@@ -53,6 +53,8 @@
             "motivation":"Ich habe einefach mega Bock",
             "anmerkung":"Iaeste ist geil",
         };
+        $scope.student = {};
+        $scope.showThanks = false;
 
         $scope.formatDate = function (date) {
             date = new Date(date);
@@ -88,6 +90,7 @@
         };
 
 
+
         $scope.save = function () {
             $scope.$broadcast('show-errors-check-validity');
             if ($scope.studentForm.$valid) {
@@ -95,7 +98,6 @@
                 $scope.formatDates();
                 var data = $scope.student;
                 data = JSON.stringify(data);
-                console.log(data);
                 $http({
                     method: 'POST',
                     url: 'php/server.php?operation=saveApplicationPersoenlich&data=' + data
@@ -104,7 +106,10 @@
                     if(response.statusText != "OK"){
                         console.log(response.data.status)
                     }else {
+                        console.log("jojo");
+                        $scope.tab= 10;
                         $scope.student.id = response.data.id;
+                        $scope.showThanks = true;
                     }
                 }, function errorCallback(response) {
                     console.log("error");
@@ -112,7 +117,6 @@
                 });
                 $scope.reset();
             }
-            console.log($scope.student);
         };
 
         $scope.reset = function () {

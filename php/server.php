@@ -30,12 +30,12 @@ class ajax_server {
         $message .= "</table>";
         $message = '<html>
                     <head>
-                        <title>Dein Weg ins Auland mit Iaeste</title>
+                        <title>Hallo'.$data_array['vorname'].',vielen Dank, dass du dich für Iaste engschieden hast, du wirst es nicht bereuen! </title>
                     </head>
 
                     <body>
 
-                    <h1>Hier noch einmal ein Überblick über alle Informationen, die du in deiner Bewerbung angegeben hast.</h1>';
+                    <h1>Hier noch einmal ein im Detail alle Informationen, die du in deiner Bewerbung angegeben hast.</h1>';
 
         $message .=  "<table border = '1'>";
         foreach ($data_array as $key => $value) {

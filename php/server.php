@@ -30,12 +30,13 @@ class ajax_server {
         $message .= "</table>";
         $message = '<html>
                     <head>
-                        <title>Hallo'.$data_array['vorname'].',vielen Dank, dass du dich für Iaste engschieden hast, du wirst es nicht bereuen! </title>
+                        <title>Iaese Bewerbung</title>
                     </head>
 
                     <body>
+                    <h1>Hallo'.$data_array['vorname'].',vielen Dank, dass du dich für Iaste engschieden hast, du wirst es nicht bereuen!</h1>
 
-                    <h1>Hier noch einmal ein im Detail alle Informationen, die du in deiner Bewerbung angegeben hast.</h1>';
+                    <p>Hier noch einmal ein im Detail alle Informationen, die du in deiner Bewerbung angegeben hast.</p>';
 
         $message .=  "<table border = '1'>";
         foreach ($data_array as $key => $value) {
@@ -48,10 +49,10 @@ class ajax_server {
         $message.= "</body>";
         $message.= "</html>";
         $to      = $data_array['email'].',info@iaeste-freiberg.de,florenz.erstling@iaeste-freiberg.de';
-        $subject = 'Bewerbung';
+        $subject = 'Deine Iaste Bewerbung';
         $headers = 'From: bewerber@iaeste-freiberg.de' . "\r\n" .
         'Content-type: text/html; charset=iso-8859-1'."\r\n" .
-        'Reply-To: webmaster@example.com' . "\r\n" .
+        'Reply-To: info@iaeste-freiberg.de' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
 
         mail( $to, $subject, $message, $headers );

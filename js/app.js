@@ -81,7 +81,6 @@
         $scope.nextForm = function(){
             $scope.$broadcast('show-errors-check-validity');
             $scope.inputCaptcha = true;
-            console.log($scope.student.captcha.response);
             if ($scope.studentForm.$valid) {
                 $scope.tab++;
                 $scope.formatDates();

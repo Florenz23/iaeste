@@ -173,7 +173,7 @@ class ajax_server {
         $to      = $data_array['email'].',florenz.erstling@iaeste-freiberg.de';
         $subject = 'Deine Iaste Bewerbung';
         $headers = 'From: bewerber@iaeste-freiberg.de' . "\r\n" .
-        'Content-type: text/html; charset=iso-8859-1'."\r\n" .
+        'Content-type: text/html; charset=utf-8'."\r\n" .
         'Reply-To: info@iaeste-freiberg.de' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
 

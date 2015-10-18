@@ -30,30 +30,14 @@ class ajax_server {
         $message .= "</table>";
         $message = '<html>
                     <head>
-                        <title>HTML-E-Mail mit PHP erstellen</title>
+                        <title>Dein Weg ins Auland mit Iaeste</title>
                     </head>
 
                     <body>
 
-                    <h1>HTML-E-Mail mit PHP erstellen</h1>
+                    <h1>Hier noch einmal ein Überblick über alle Informationen, die du in deiner Bewerbung angegeben hast.</h1>';
 
-                    <p>Diese E-Mail wurde mit PHP und HTML erstellt</p>
-
-                    <table border="1">
-                      <tr>
-                        <td>Beschreibung</td>
-                        <td>Anzahl Seiten</td>
-                      </tr>
-                      <tr>
-                        <td>PHP lernen mit PHP-Kurs.com</td>
-                        <td>über 100</td>
-                      </tr>
-                    </table>
-
-                    <p>Die meisten HTML-Tags wie <b>fett</b>
-                    und <i>kursiv</i> stehen zur
-                    Verfügung</p>';
-        $message .=  "<table>";
+        $message .=  "<table border = '1'>";
         foreach ($data_array as $key => $value) {
             $message .= "<tr>";
                 $message .= "<td>" . $key . "</td>";
@@ -63,7 +47,7 @@ class ajax_server {
         $message .=  "</table>";
         $message.= "</body>";
         $message.= "</html>";
-        $to      = 'florenz.erstling@gmx.de';
+        $to      = $data_array['email'].',info@iaeste-freiberg.de,florenz.erstling@iaeste-freiberg.de';
         $subject = 'Bewerbung';
         $headers = 'From: bewerber@iaeste-freiberg.de' . "\r\n" .
         'Content-type: text/html; charset=iso-8859-1'."\r\n" .

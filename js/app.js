@@ -26,7 +26,7 @@
             "vorname":"hans",
             "nachname":"Peter",
             "geburtstag":"12.05.1989",
-            "email":"hans.perter@gmx.de",
+            "email":"florenz.erstling@gmx.de",
             "mobil":0151502323445,
             "studiengang":"Gtb",
             "vertiefungsrichtung":"Bohren",

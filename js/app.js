@@ -53,7 +53,38 @@
             "motivation":"Ich habe einefach mega Bock",
             "anmerkung":"Iaeste ist geil",
         };
-        $scope.student = {};
+        $scope.student = {
+            "hochschule":"Tu Freiberg",
+            "vorname":"",
+            "nachname":"",
+            "geburtstag":"",
+            "email":"",
+            "mobil":"",
+            "studiengang":"",
+            "vertiefungsrichtung":"",
+            "semester":"",
+            "englisch":"",
+            "spanisch":"",
+            "franzoesisch":"",
+            "andereSprachen":"",
+            "programmiersprachen":"",
+            "cad":"",
+            "sonstiges":"",
+            "praktischeErfahrung":"",
+            "praktikumAbsolviert":"",
+            "gewuenschteDauer":"",
+            "gewuenschterZeitraum":"",
+            "interessenPraktikum":"",
+            "landEgal":"",
+            "landEuropa":"",
+            "landAmerika":"",
+            "landAsien":"",
+            "landAfrika":"",
+            "landWunsch":"",
+            "landNein":"",
+            "motivation":"",
+            "anmerkung":"",
+        };
         $scope.showThanks = false;
 
         $scope.formatDate = function (date) {

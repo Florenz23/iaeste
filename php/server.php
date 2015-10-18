@@ -42,7 +42,9 @@ class ajax_server {
         foreach ($data_array as $key => $value) {
             $message .= "<tr>";
                 $message .= "<td>" . $key . "</td>";
-                $message .= "<td>" . $value . "</td>";
+                if(!$value['captcha']){
+                    $message .= "<td>" . $value . "</td>";
+                }
             $message .= "</tr>";
         }
         $message .=  "</table>";

@@ -27,17 +27,8 @@ class ajax_server {
         $this->db = new MysqliDb( "localhost", "root", "", "iaeste_neu" );
     }
 
-    public function sendMail( $data_array ) {
-        $to      = 'florenz.erstling@gmx.de';
-        $subject = 'the subject';
-        $message = 'hello';
-        $headers = 'From: florenz.erstling@gmx.de' . "\r\n" .
-            'Reply-To: florenz.erstling@gmx.de' . "\r\n" .
-            'X-Mailer: PHP/' . phpversion();
-        mail($to, $subject, $message, $headers);
-    }
 
-    public function sendMaill( $data_array ) {
+    public function sendMail( $data_array ) {
     $msg = "First line of text\nSecond line of text";
 
     // use wordwrap() if lines are longer than 70 characters
@@ -199,7 +190,6 @@ class ajax_server {
     }
 
     public function saveApplicationPersoenlich( $data ) {
-        $this->sendMail( $old_data );
         $data = json_decode( $data['data'] );
         $old_data = (array)$data;
         $data = array (
@@ -219,7 +209,10 @@ class ajax_server {
                 'semester' => $old_data['semester'],
             );
             $id = $this->db->insert ( 'iaeste_apply_studium', $data );
-        }
+        } else{
+            echo '{"status":"'.$this->db->getLastError().'"}';
+            return;
+        };
         if ( $id ) {
             $data = array (
                 'id' => $id,
@@ -232,6 +225,9 @@ class ajax_server {
                 'sonstiges' => $old_data['sonstiges'],
             );
             $id = $this->db->insert ( 'iaeste_apply_sprachen', $data );
+        } else{
+            echo '{"status":"'.$this->db->getLastError().'"}';
+            return;
         }
         if ( $id ) {
             $data = array (
@@ -244,6 +240,9 @@ class ajax_server {
                 'landWunsch' => $old_data['landWunsch'],
             );
             $id = $this->db->insert ( 'iaeste_apply_laenderWuensche', $data );
+        } else{
+            echo '{"status":"'.$this->db->getLastError().'"}';
+            return;
         }
         if ( $id ) {
             $data = array (
@@ -252,15 +251,20 @@ class ajax_server {
                 'anmerkung' => $old_data['anmerkung'],
             );
             $id = $this->db->insert ( 'iaeste_apply_sonstiges', $data );
+        } else{
+            echo '{"status":"'.$this->db->getLastError().'"}';
+            return;
         }
         if ( $id ) {
 
             echo '{"status":"ok","id":"'.$id.'"}';
             $this->sendMail( $old_data );
         }
-        else
+        else {
             echo '{"status":"'.$this->db->getLastError().'"}';
+        }
     }
+
 }
 
 

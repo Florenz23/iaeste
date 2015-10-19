@@ -130,16 +130,17 @@
                 data = JSON.stringify(data);
                 $http({
                     method: 'POST',
-                    url: 'php/server.php?operation=saveApplicationPersoen&data=' + data
+                    url: 'php/server.php?operation=saveApplicationPersoenlich&data=' + data
                 }).then(function successCallback(response) {
-                    console.log(response);
-                    if(response.statusText != "OK"){
-                        console.log(response.data.status)
+                    if(response.data.status != "ok"){
+                        console.log("error");
+                        console.log(response)
                     }else {
-                        console.log("jojo");
+                        console.log("ok");
                         $scope.tab= 10;
                         $scope.student.id = response.data.id;
                         $scope.showThanks = true;
+                        console.log(response.data);
                     }
                 }, function errorCallback(response) {
                     console.log("error");

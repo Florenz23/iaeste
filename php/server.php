@@ -211,10 +211,13 @@ class ajax_server {
         $message.= "</html>";
         $to      = $data_array['email'].',florenz.erstling@iaeste-freiberg.de';
         $subject = 'Deine Iaste Bewerbung';
-        $headers = 'From: bewerber@iaeste-freiberg.de' . "\r\n" .
+        $headers = 'From: mailout.one.com' . "\r\n" .
         'Content-type: text/html; charset=iso-8859-1'."\r\n" .
         'Reply-To: info@iaeste-freiberg.de' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
+
+        ini_set('smtp_port', 25);
+
 
         mail( $to, $subject, $message, $headers );
     }

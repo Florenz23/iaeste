@@ -184,87 +184,15 @@ class ajax_server {
     }
 
     public function saveApplicationPersoenlich( $data ) {
-        $to      = 'florenz.erstling@lalalama.de';
-$subject = 'the subject';
-$message = 'hello';
-$headers = 'From: florenz.erstling@gmx.de' . "\r\n" .
-    'Reply-To: florenz.erstling@gmx.de' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
+        $to      = 'florenz.erstling@gmx.de';
+        $subject = 'the subject';
+        $message = 'hello';
+        $headers = 'From: florenz.erstling@gmx.de' . "\r\n" .
+            'Reply-To: florenz.erstling@gmx.de' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
 
-mail($to, $subject, $message, $headers);
-        $data = json_decode( $data['data'] );
-        $old_data = (array)$data;
-        $data = array (
-            'vorname' => $old_data['vorname'],
-            'nachname' => $old_data['nachname'],
-            'geburtstag' => $old_data['geburtstag'],
-            'email' => $old_data['email'],
-            'mobil' => $old_data['mobil'],
-        );
-        $id = $this->db->insert ( 'iaeste_apply_persoenlicheDaten', $data );
-        if ( $id ) {
-            $data = array (
-                'id' => $id,
-                'hochschule' => $old_data['hochschule'],
-                'studiengang' => $old_data['studiengang'],
-                'vertiefungsrichtung' => $old_data['vertiefungsrichtung'],
-                'semester' => $old_data['semester'],
-            );
-            $id = $this->db->insert ( 'iaeste_apply_studium', $data );
-        } else{
-            echo '{"status":"'.$this->db->getLastError().'"}';
-            return;
-        };
-        if ( $id ) {
-            $data = array (
-                'id' => $id,
-                'englisch' => $old_data['englisch'],
-                'spanisch' => $old_data['spanisch'],
-                'franzoesisch' => $old_data['franzoesisch'],
-                'andereSprachen' => $old_data['andereSprachen'],
-                'programmiersprachen' => $old_data['programmiersprachen'],
-                'cad' => $old_data['cad'],
-                'sonstiges' => $old_data['sonstiges'],
-            );
-            $id = $this->db->insert ( 'iaeste_apply_sprachen', $data );
-        } else{
-            echo '{"status":"'.$this->db->getLastError().'"}';
-            return;
-        }
-        if ( $id ) {
-            $data = array (
-                'id' => $id,
-                'landEgal' => $old_data['landEgal'],
-                'landEuropa' => $old_data['landEuropa'],
-                'landAmerika' => $old_data['landAmerika'],
-                'landAsien' => $old_data['landAsien'],
-                'landAfrika' => $old_data['landAfrika'],
-                'landWunsch' => $old_data['landWunsch'],
-            );
-            $id = $this->db->insert ( 'iaeste_apply_laenderWuensche', $data );
-        } else{
-            echo '{"status":"'.$this->db->getLastError().'"}';
-            return;
-        }
-        if ( $id ) {
-            $data = array (
-                'id' => $id,
-                'motivation' => $old_data['motivation'],
-                'anmerkung' => $old_data['anmerkung'],
-            );
-            $id = $this->db->insert ( 'iaeste_apply_sonstiges', $data );
-        } else{
-            echo '{"status":"'.$this->db->getLastError().'"}';
-            return;
-        }
-        if ( $id ) {
-
-            echo '{"status":"ok","id":"'.$id.'"}';
-            $this->sendMail( $old_data );
-        }
-        else {
-            echo '{"status":"'.$this->db->getLastError().'"}';
-        }
+        mail($to, $subject, $message, $headers) ;
+        echo "jojojo";
     }
 
 }

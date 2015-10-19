@@ -1,7 +1,7 @@
 <?php
 //https://github.com/joshcam/PHP-MySQLi-Database-Class
 require_once 'MysqliDb.php';
-
+require 'php_mailer/PHPMailerAutoload.php';
 class ajax_server {
 
     function __construct() {
@@ -25,6 +25,42 @@ class ajax_server {
             return;
         }
         $this->db = new MysqliDb( "localhost", "root", "", "iaeste_neu" );
+    }
+
+    public function sendMailNew($jojo)
+    {
+        $mail = new PHPMailer;
+
+        //$mail->SMTPDebug = 3;                               // Enable verbose debug output
+
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = 'mailout.one.com';  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail->Username = 'florenz.erstling@lalalama.de';                 // SMTP username
+        $mail->Password = '23Safreiiy';                           // SMTP password
+        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 25;                                    // TCP port to connect to
+
+        $mail->setFrom('from@example.com', 'Mailer');
+        $mail->addAddress('florenz.erstling@gmx.de', 'Joe User');     // Add a recipient
+        $mail->addReplyTo('info@example.com', 'Information');
+        $mail->addCC('cc@example.com');
+        $mail->addBCC('bcc@example.com');
+
+        $mail->isHTML(true);                                  // Set email format to HTML
+
+        $mail->Subject = 'Here is the subject';
+        $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+        if(!$mail->send()) {
+            echo 'Message could not be sent.';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+        } else {
+            echo 'Message has been sent';
+        }
+
+
     }
 
 
@@ -184,19 +220,81 @@ class ajax_server {
     }
 
     public function saveApplicationPersoenlich( $data ) {
-        $to      = 'florenz.erstling@gmx.de';
-        $subject = 'the subject';
-        $message = 'hello';
-        $headers = 'From: florenz.erstling@gmx.de' . "\r\n" .
-            'Reply-To: florenz.erstling@gmx.de' . "\r\n" .
-            'X-Mailer: PHP/' . phpversion();
 
-        $mailsent = mail($to, $subject, $message, $headers) ;
-        if ($mailsent)
-            echo "mail send";
-        else
-            echo "error";
+        $data = json_decode( $data['data'] );
+        $old_data = (array)$data;
+        $data = array (
+            'vorname' => $old_data['vorname'],
+            'nachname' => $old_data['nachname'],
+            'geburtstag' => $old_data['geburtstag'],
+            'email' => $old_data['email'],
+            'mobil' => $old_data['mobil'],
+        );
+        $id = $this->db->insert ( 'iaeste_apply_persoenlicheDaten', $data );
+        if ( $id ) {
+            $data = array (
+                'id' => $id,
+                'hochschule' => $old_data['hochschule'],
+                'studiengang' => $old_data['studiengang'],
+                'vertiefungsrichtung' => $old_data['vertiefungsrichtung'],
+                'semester' => $old_data['semester'],
+            );
+            $id = $this->db->insert ( 'iaeste_apply_studium', $data );
+        } else{
+            echo '{"status":"'.$this->db->getLastError().'"}';
+            return;
+        };
+        if ( $id ) {
+            $data = array (
+                'id' => $id,
+                'englisch' => $old_data['englisch'],
+                'spanisch' => $old_data['spanisch'],
+                'franzoesisch' => $old_data['franzoesisch'],
+                'andereSprachen' => $old_data['andereSprachen'],
+                'programmiersprachen' => $old_data['programmiersprachen'],
+                'cad' => $old_data['cad'],
+                'sonstiges' => $old_data['sonstiges'],
+            );
+            $id = $this->db->insert ( 'iaeste_apply_sprachen', $data );
+        } else{
+            echo '{"status":"'.$this->db->getLastError().'"}';
+            return;
         }
+        if ( $id ) {
+            $data = array (
+                'id' => $id,
+                'landEgal' => $old_data['landEgal'],
+                'landEuropa' => $old_data['landEuropa'],
+                'landAmerika' => $old_data['landAmerika'],
+                'landAsien' => $old_data['landAsien'],
+                'landAfrika' => $old_data['landAfrika'],
+                'landWunsch' => $old_data['landWunsch'],
+            );
+            $id = $this->db->insert ( 'iaeste_apply_laenderWuensche', $data );
+        } else{
+            echo '{"status":"'.$this->db->getLastError().'"}';
+            return;
+        }
+        if ( $id ) {
+            $data = array (
+                'id' => $id,
+                'motivation' => $old_data['motivation'],
+                'anmerkung' => $old_data['anmerkung'],
+            );
+            $id = $this->db->insert ( 'iaeste_apply_sonstiges', $data );
+        } else{
+            echo '{"status":"'.$this->db->getLastError().'"}';
+            return;
+        }
+        if ( $id ) {
+
+            echo '{"status":"ok","id":"'.$id.'"}';
+            $this->sendMailNew( $old_data );
+        }
+        else {
+            echo '{"status":"'.$this->db->getLastError().'"}';
+        }
+    }
 
 }
 

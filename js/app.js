@@ -130,7 +130,7 @@
                 data = JSON.stringify(data);
                 $http({
                     method: 'POST',
-                    url: 'php/server.php?operation=sendMail&data=' + data
+                    url: 'php/server.php?operation=saveApplicationPersoen&data=' + data
                 }).then(function successCallback(response) {
                     console.log(response);
                     if(response.statusText != "OK"){

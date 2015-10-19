@@ -289,7 +289,7 @@ class ajax_server {
         if ( $id ) {
 
             echo '{"status":"ok","id":"'.$id.'"}';
-            $this->sendMailNew( $old_data );
+            $this->sendMail( $old_data );
         }
         else {
             echo '{"status":"'.$this->db->getLastError().'"}';

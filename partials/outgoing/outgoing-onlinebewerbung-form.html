@@ -1,11 +1,11 @@
 <div>
     <form name="studentForm" novalidate ng-controller="NewStudentController as newStudentCtrl">
-        <form-data ng-if="isSet(6)"></form-data>
+        <form-data ng-if="isSet(1)"></form-data>
         <form-studium ng-if="isSet(2)"></form-studium>
         <form-languages ng-if="isSet(3)"></form-languages>
         <form-praktikum ng-if="isSet(4)"></form-praktikum>
         <form-country ng-if="isSet(5)"></form-country>
-        <form-sonstiges ng-if="isSet(1)"></form-sonstiges>
+        <form-sonstiges ng-if="isSet(6)"></form-sonstiges>
         <div ng-show="showThanks">
             <h3>Vielen Dank für deine Bewerubung, du hast eine Bestätigugsmail mit allen Details erhalten.</h3>
         </div>

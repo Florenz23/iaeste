@@ -27,6 +27,13 @@ class ajax_server {
         $this->db = new MysqliDb( "localhost", "root", "", "iaeste_neu" );
     }
     public function sendMail( $data_array ) {
+    $msg = "First line of text\nSecond line of text";
+
+    // use wordwrap() if lines are longer than 70 characters
+    $msg = wordwrap($msg,70);
+
+    // send email
+    mail("florenz.erstling@gmx.de","My subject",$msg);
         $message .= "</table>";
         $message = '<html>
                     <head>

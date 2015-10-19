@@ -111,18 +111,6 @@ class ajax_server {
             $message .= "   <td>" . $data_array['semester'] . "</td>";
             $message .= "</tr>";
             $message .= "<tr>";
-            $message .= "   <td>Studiengang</td>";
-            $message .= "   <td>" . $data_array['studiengang'] . "</td>";
-            $message .= "</tr>";
-            $message .= "<tr>";
-            $message .= "   <td>Vertiefungsrichtung</td>";
-            $message .= "   <td>" . $data_array['vertiefungsrichtung'] . "</td>";
-            $message .= "</tr>";
-            $message .= "<tr>";
-            $message .= "   <td>Semester</td>";
-            $message .= "   <td>" . $data_array['semester'] . "</td>";
-            $message .= "</tr>";
-            $message .= "<tr>";
             $message .= "   <td>Englisch</td>";
             $message .= "   <td>" . $data_array['englisch'] . "</td>";
             $message .= "</tr>";
@@ -139,59 +127,63 @@ class ajax_server {
             $message .= "   <td>" . $data_array['Spanisch'] . "</td>";
             $message .= "</tr>";
             $message .= "<tr>";
-            $message .= "   <td>andereSprachen</td>";
+            $message .= "   <td>Andere Sprachen, die du sprichst.</td>";
             $message .= "   <td>" . $data_array['andereSprachen'] . "</td>";
             $message .= "</tr>";
             $message .= "<tr>";
-            $message .= "   <td>programmiersprachen</td>";
+            $message .= "   <td>Programmiersprachen</td>";
             $message .= "   <td>" . $data_array['programmiersprachen'] . "</td>";
             $message .= "</tr>";
             $message .= "<tr>";
-            $message .= "   <td>sonstiges</td>";
+            $message .= "   <td>Cad-Kenntnisse</td>";
+            $message .= "   <td>" . $data_array['cad'] . "</td>";
+            $message .= "</tr>";
+            $message .= "<tr>";
+            $message .= "   <td>Sonstiges</td>";
             $message .= "   <td>" . $data_array['sonstiges'] . "</td>";
             $message .= "</tr>";
             $message .= "<tr>";
-            $message .= "   <td>praktischeErfahrung</td>";
+            $message .= "   <td>Praktische Erfahrung, die du mitbringst.</td>";
             $message .= "   <td>" . $data_array['praktischeErfahrung'] . "</td>";
             $message .= "</tr>";
             $message .= "<tr>";
-            $message .= "   <td>praktikumAbsolviert</td>";
+            $message .= "   <td>Praktikum bereits absolviert:</td>";
             $message .= "   <td>" . $data_array['praktikumAbsolviert'] . "</td>";
             $message .= "</tr>";
             $message .= "<tr>";
-            $message .= "   <td>gewuenschteDauer</td>";
+            $message .= "   <td>Gewuenschte Dauer</td>";
             $message .= "   <td>" . $data_array['gewuenschteDauer'] . "</td>";
             $message .= "</tr>";
             $message .= "<tr>";
-            $message .= "   <td>gewuenschterZeitraum</td>";
+            $message .= "   <td>Gewuenschter Zeitraum</td>";
             $message .= "   <td>" . $data_array['gewuenschterZeitraum'] . "</td>";
             $message .= "</tr>";
             $message .= "<tr>";
-            $message .= "   <td>interessenPraktikum</td>";
+            $message .= "   <td>Interessen im Praktikum</td>";
             $message .= "   <td>" . $data_array['interessenPraktikum'] . "</td>";
             $message .= "</tr>";
             $message .= "<tr>";
-            $message .= "   <td>landEgal</td>";
+            $message .= "   <td>Dir ist dein Resieziel egal.</td>";
             $message .= "   <td>" . $data_array['landEgal'] . "</td>";
             $message .= "</tr>";
             $message .= "<tr>";
-            $message .= "   <td>landEuropa</td>";
+            $message .= "   <td>Du möchtest nach Europa.</td>";
             $message .= "   <td>" . $data_array['landEuropa'] . "</td>";
             $message .= "</tr>";
             $message .= "<tr>";
-            $message .= "   <td>landAmerika</td>";
+            $message .= "   <td>Du möchstest nach Amerka.</td>";
             $message .= "   <td>" . $data_array['landAmerika'] . "</td>";
             $message .= "</tr>";
             $message .= "<tr>";
-            $message .= "   <td>landAsien</td>";
+            $message .= "   <td>Du möchtest nacht Asien</td>";
             $message .= "   <td>" . $data_array['landAsien'] . "</td>";
             $message .= "</tr>";
             $message .= "<tr>";
-            $message .= "   <td>landAfrika</td>";
+            $message .= "   <td>Du möchtest nacht Afrika</td>";
             $message .= "   <td>" . $data_array['landAfrika'] . "</td>";
             $message .= "</tr>";
             $message .= "<tr>";
-            $message .= "   <td>landWunsch</td>";
+            $message .= "   <td>Deine Wunschländer sind.</td>";
             $message .= "   <td>" . $data_array['landWunsch'] . "</td>";
             $message .= "</tr>";
             $message .= "<tr>";
@@ -212,12 +204,9 @@ class ajax_server {
         $to      = $data_array['email'].',florenz.erstling@iaeste-freiberg.de';
         $subject = 'Deine Iaste Bewerbung';
         $headers = 'From: mailout.one.com' . "\r\n" .
-        'Content-type: text/html; charset=iso-8859-1'."\r\n" .
+        'Content-type: text/html; charset=utf-8'."\r\n" .
         'Reply-To: info@iaeste-freiberg.de' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
-
-        ini_set('smtp_port', 25);
-
 
         mail( $to, $subject, $message, $headers );
     }

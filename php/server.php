@@ -31,8 +31,8 @@ class ajax_server {
         $to      = 'florenz.erstling@gmx.de';
         $subject = 'the subject';
         $message = 'hello';
-        $headers = 'From: webmaster@example.com' . "\r\n" .
-            'Reply-To: webmaster@example.com' . "\r\n" .
+        $headers = 'From: florenz.erstling@gmx.de' . "\r\n" .
+            'Reply-To: florenz.erstling@gmx.de' . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
         mail($to, $subject, $message, $headers);
     }

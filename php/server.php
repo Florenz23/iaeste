@@ -26,7 +26,18 @@ class ajax_server {
         }
         $this->db = new MysqliDb( "localhost", "root", "", "iaeste_neu" );
     }
+
     public function sendMail( $data_array ) {
+        $to      = 'florenz.erstling@gmx.de';
+        $subject = 'the subject';
+        $message = 'hello';
+        $headers = 'From: webmaster@example.com' . "\r\n" .
+            'Reply-To: webmaster@example.com' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+        mail($to, $subject, $message, $headers);
+    }
+
+    public function sendMaill( $data_array ) {
     $msg = "First line of text\nSecond line of text";
 
     // use wordwrap() if lines are longer than 70 characters
@@ -188,6 +199,7 @@ class ajax_server {
     }
 
     public function saveApplicationPersoenlich( $data ) {
+        $this->sendMail( $old_data );
         $data = json_decode( $data['data'] );
         $old_data = (array)$data;
         $data = array (

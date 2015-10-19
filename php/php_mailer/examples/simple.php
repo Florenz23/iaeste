@@ -1,5 +1,5 @@
 <?php
-ini_set('smtp_port', 25)
+ini_set('smtp_port', 25);
 $to      = 'florenz.erstling@gmx.de';
 $subject = 'the subject';
 $message = 'hello';

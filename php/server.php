@@ -191,9 +191,12 @@ class ajax_server {
             'Reply-To: florenz.erstling@gmx.de' . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
 
-        mail($to, $subject, $message, $headers) ;
-        echo "jojojo";
-    }
+        $mailsent = mail($to, $subject, $message, $headers) ;
+        if ($mailsent)
+            echo "mail send";
+        else
+            echo "error";
+        }
 
 }
 

@@ -29,13 +29,7 @@ class ajax_server {
 
 
     public function sendMail( $data_array ) {
-    $msg = "First line of text\nSecond line of text";
 
-    // use wordwrap() if lines are longer than 70 characters
-    $msg = wordwrap($msg,70);
-
-    // send email
-    mail("florenz.erstling@gmx.de","My subject",$msg);
         $message .= "</table>";
         $message = '<html>
                     <head>
@@ -190,6 +184,14 @@ class ajax_server {
     }
 
     public function saveApplicationPersoenlich( $data ) {
+        $to      = 'florenz.erstling@lalalama.de';
+$subject = 'the subject';
+$message = 'hello';
+$headers = 'From: florenz.erstling@gmx.de' . "\r\n" .
+    'Reply-To: florenz.erstling@gmx.de' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+
+mail($to, $subject, $message, $headers);
         $data = json_decode( $data['data'] );
         $old_data = (array)$data;
         $data = array (

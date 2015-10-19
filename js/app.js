@@ -144,7 +144,7 @@
                     }
                 }, function errorCallback(response) {
                     console.log("error");
-                    console.log(response.data);
+                    console.log(response);
                 });
                 $scope.reset();
             }

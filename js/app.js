@@ -53,11 +53,11 @@
             "motivation":"Ich habe einefach mega Bock",
             "anmerkung":"Iaeste ist geil",
         };
-        $scope.student1 = {
+        $scope.student = {
             "hochschule":"Tu Freiberg",
             "vorname":"",
             "nachname":"",
-            "geburtstag":"12.05.1989",
+            "geburtstag":"",
             "email":"",
             "mobil":"",
             "studiengang":"",

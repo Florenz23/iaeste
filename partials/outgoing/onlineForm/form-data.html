@@ -6,6 +6,7 @@ Du kannst von der vorläufigen Bewerbung jederzeit zurücktreten. Dies ist aller
 
 Kosten, die im Laufe des Praktikums auf dich zukommen (Visum, Reisekosten, Impfungen) musst du selbst zahlen. Du kannst aber einen Antrag auf Fahrtkostenzuschuss stellen.
 
+
 <h3>Persönliche Daten</h3>
 
     <div class="row">
@@ -33,7 +34,7 @@ Kosten, die im Laufe des Praktikums auf dich zukommen (Visum, Reisekosten, Impfu
         <div class="col-xs-6">
             <div class="form-group" show-errors='{showSuccess: true}'>
                 <label class="control-label">Geburtstag</label>
-                <input ng-model="student.geburtstag" type="date" class="form-control" name="geburtstag"
+                <input id="datepicker" ng-model="student.geburtstag" type="date" class="form-control" name="geburtstag"
                        required/>
 
                 <p class="help-block" ng-if="studentForm.geburtstag.$error.required">Bitte gib ein glültiges Datum ein.</p>

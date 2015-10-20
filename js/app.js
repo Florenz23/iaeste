@@ -12,6 +12,10 @@
     });
     app.controller('NewStudentController', function ($scope,$http,reCAPTCHA) {
 
+        webshims.setOptions('waitReady', false);
+        webshims.setOptions('forms-ext', {types: 'date'});
+        webshims.polyfill('forms forms-ext');
+
         reCAPTCHA.setPublicKey('6LfyK-0SAAAAAAl6V9jBGQgPxemtrpIZ-SPDPd-n');
 
         $scope.tab = 1;

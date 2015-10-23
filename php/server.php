@@ -75,7 +75,7 @@ class ajax_server {
                     <body>
                     <h1>Hallo '.$data_array['vorname'].', vielen Dank, dass du dich für Iaste entschieden hast, du wirst es nicht bereuen!</h1>
 
-                    <p><a href="http://iaeste-freiberg.de/iaeste_neu/outgoing.html">Hier</a> kannst du untere Bewerbungsverfahren weitere Infos zum Ablauf bekommen oder kontaktiere uns unter info(at)iaeste-freiberg.de</p>
+                    <p><a href="http://iaeste-freiberg.de/iaeste_neu/outgoing.html">Hier</a> kannst du unter Bewerbungsverfahren weitere Infos zum Ablauf bekommen oder kontaktiere uns unter info(at)iaeste-freiberg.de</p>
                     <p>Hier noch einmal im Detail alle Informationen, die du in deiner Bewerbung angegeben hast.</p>';
 
         $message .=  "<table border = '1'>";

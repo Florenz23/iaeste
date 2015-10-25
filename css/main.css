@@ -57,9 +57,10 @@ body {
 }
 
 .navbar .nav > li > a {
+    font-size: 15px;
     float: none;
     line-height: 19px;
-    padding: 9px 10px 11px;
+    padding: 40px 10px 11px;
     text-decoration: none;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     color: #FFFFFF;
@@ -67,8 +68,8 @@ body {
 
 .navbar-brand,
 .navbar-nav li a {
-    line-height: 70px;
-    height: 70px;
+    line-height: 100px;
+    height: 100px;
     padding-top: 0;
 }
 

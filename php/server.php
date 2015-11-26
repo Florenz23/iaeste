@@ -202,7 +202,7 @@ class ajax_server {
         $message .=  "</table>";
         $message.= "</body>";
         $message.= "</html>";
-        $to      = $data_array['email'].',info@iaeste-freiberg.de,florenz.erstling@iaeste-freiberg.de';
+        $to      = $data_array['email'].',info@iaeste-freiberg.de';
         $subject = 'Deine Iaste Bewerbung';
         $headers = 'From: info@iaeste-freiberg.de' . "\r\n" .
         'Content-type: text/html; charset=utf-8'."\r\n" .
